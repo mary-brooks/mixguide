@@ -1,0 +1,20 @@
+{
+    "ingredients": {
+      "fridge": [        
+        "Fresh lime juice",
+        "Fresh mint leaves",
+        "Club soda",
+        "Coconut cream",
+        "Pineapple juice"
+      ],
+      "pantry": [
+        "Simple syrup"
+      ],
+      "cupboard": [
+        "White rum",
+        "Tequila",
+        "Triple sec"
+      ]
+    }
+  }
+  
