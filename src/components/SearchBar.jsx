@@ -3,12 +3,13 @@ import IngredientButton from './IngredientButton';
 function SearchBar({ selectedIngredients, handleRemoveClick }) {
   return (
     <div className='search-bar'>
-      {selectedIngredients.map((ingredient, index) => (
+      {selectedIngredients.map(({ingredient, category}, index) => (
         <IngredientButton
           key={index}
           label={ingredient}
+          category = {category}
           onClick={() => {
-            handleRemoveClick(ingredient);
+            handleRemoveClick({ingredient, category});
           }}
         />
       ))}
