@@ -10,9 +10,19 @@ function SearchOptions() {
         ))}
       </div>
 
-      <div className='pantry'></div>
+      <div className='pantry'>
+        <h2>Pantry:</h2>
+        {ingredients.pantry.map((ingredient, index) => (
+          <button key={index}>{ingredient}</button>
+        ))}
+      </div>
 
-      <div className='cupboard'></div>
+      <div className='cupboard'>
+        <h2>Cupboard:</h2>
+        {ingredients.cupboard.map((ingredient, index) => (
+          <button key={index}>{ingredient}</button>
+        ))}
+      </div>
     </div>
   );
 }

@@ -42,28 +42,33 @@ button:hover {
   border: 1px solid black;
   width: 33%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
   position: absolute;
   top: 6rem;
   left: 2rem;
 }
 
-.fridge {
+.fridge,
+.pantry,
+.cupboard {
   background-color: azure;
   width: 93%;
   height: fit-content;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
-.fridge h2 {
+.fridge h2,
+.pantry h2,
+.cupboard h2 {
   margin: 1rem;
   font-size: 22px;
 }
 
-.fridge button {
+.fridge button,
+.pantry button,
+.cupboard button {
   width: fit-content;
   height: 1.5rem;
   border: 1px solid black;
