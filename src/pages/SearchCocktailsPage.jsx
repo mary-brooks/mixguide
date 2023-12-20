@@ -41,11 +41,23 @@ function SearchCocktailsPage() {
       default:
         break;
     }
+
     // Add the clicked ingredient to the selectedIngredients array
     setSelectedIngredients(prevSelectedIngredients => [
       ...prevSelectedIngredients,
       ingredient,
     ]);
+  };
+
+  const handleRemoveClick = clickedIngredient => {
+    // remove from selectedIngredients onClick
+    setSelectedIngredients(prevSelectedIngredients =>
+      [...prevSelectedIngredients].filter(ingredient => {
+        return ingredient !== clickedIngredient;
+      })
+    );
+
+    // add clickedIngredient to corresponding ingredients category
   };
 
   return (
@@ -57,7 +69,10 @@ function SearchCocktailsPage() {
         pantryIngredients={pantryIngredients}
         cupboardIngredients={cupboardIngredients}
       />
-      <SearchBar selectedIngredients={selectedIngredients} />
+      <SearchBar
+        selectedIngredients={selectedIngredients}
+        handleRemoveClick={handleRemoveClick}
+      />
     </div>
   );
 }
