@@ -1,38 +1,71 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
 
-  nav {
-    width: 100%;
-    height: 4rem; 
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: azure;
-  }
-  .nav-link {
-    text-decoration: none;
-  }
+nav {
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: azure;
+}
+.nav-link {
+  text-decoration: none;
+}
 
-  .home-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-  }
-  .home-page button{
-    width: 70rem;
-    height: 10rem;
-    text-decoration: none;
-    margin: 2rem 0;
-    border: 1px solid black;
-  }
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.home-page button {
+  width: 70rem;
+  height: 10rem;
+  text-decoration: none;
+  margin: 2rem 0;
+  border: 1px solid black;
+}
 
-  button:hover {
-    cursor: pointer;
-  }
+button:hover {
+  cursor: pointer;
+}
+
+.ingredients {
+  background-color: white;
+  border: 1px solid black;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: absolute;
+  top: 6rem;
+  left: 2rem;
+}
+
+.fridge {
+  background-color: azure;
+  width: 93%;
+  height: fit-content;
+  margin-top: 1rem;
+}
+
+.fridge h2 {
+  margin: 1rem;
+  font-size: 22px;
+}
+
+.fridge button {
+  width: fit-content;
+  height: 1.5rem;
+  border: 1px solid black;
+  margin: 1rem;
+}

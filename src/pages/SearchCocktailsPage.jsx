@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar"
-import SearchOptions from "../components/SearchOptions"
+import Navbar from '../components/Navbar';
+import SearchOptions from '../components/SearchOptions';
 
 function SearchCocktailsPage() {
   return (
@@ -7,7 +7,7 @@ function SearchCocktailsPage() {
       <Navbar />
       <SearchOptions />
     </div>
-  )
+  );
 }
 
-export default SearchCocktailsPage
+export default SearchCocktailsPage;
