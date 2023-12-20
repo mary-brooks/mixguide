@@ -66,9 +66,7 @@ button:hover {
   font-size: 22px;
 }
 
-.fridge button,
-.pantry button,
-.cupboard button {
+.ingredient-button {
   width: fit-content;
   height: 1.5rem;
   border: 1px solid black;

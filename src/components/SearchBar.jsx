@@ -1,8 +1,10 @@
+import IngredientButton from './IngredientButton';
+
 function SearchBar({ selectedIngredients }) {
   return (
     <div className='search-bar'>
       {selectedIngredients.map((ingredient, index) => (
-        <button key={index}>{ingredient}</button>
+        <IngredientButton key={index} label={ingredient} />
       ))}
     </div>
   );

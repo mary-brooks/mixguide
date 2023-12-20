@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-
-// Button Component
-const Button = ({ label, onClick }) => {
-  return <button onClick={onClick}>{label}</button>;
-};
+import IngredientButton from './IngredientButton';
 
 function SearchOptions({
   handleButtonClick,
@@ -16,7 +12,7 @@ function SearchOptions({
       <div className='fridge'>
         <h2>Fridge:</h2>
         {fridgeIngredients.map((ingredient, index) => (
-          <Button
+          <IngredientButton
             key={index}
             label={ingredient}
             onClick={() => handleButtonClick(ingredient, 'fridge')}
@@ -26,7 +22,7 @@ function SearchOptions({
       <div className='pantry'>
         <h2>Pantry:</h2>
         {pantryIngredients.map((ingredient, index) => (
-          <Button
+          <IngredientButton
             key={index}
             label={ingredient}
             onClick={() => handleButtonClick(ingredient, 'pantry')}
@@ -36,7 +32,7 @@ function SearchOptions({
       <div className='cupboard'>
         <h2>Cupboard:</h2>
         {cupboardIngredients.map((ingredient, index) => (
-          <Button
+          <IngredientButton
             key={index}
             label={ingredient}
             onClick={() => handleButtonClick(ingredient, 'cupboard')}
