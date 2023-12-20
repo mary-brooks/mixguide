@@ -74,3 +74,17 @@ button:hover {
   border: 1px solid black;
   margin: 1rem;
 }
+
+.search-bar {
+  background-color: white;
+  border: 1px solid black;
+  width: 60%;
+  min-height: 2rem;
+  height: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 6rem;
+  right: 2rem;
+}
