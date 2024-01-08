@@ -1,91 +1,10 @@
-/* import Navbar from '../components/Navbar';
-import SearchBar from '../components/SearchBar';
-import SearchOptions from '../components/SearchOptions';
-
-import { useState } from 'react';
-
-import ingredients from '../ingredients.json';
-
-function SearchCocktailsPage() {
-  // State for ingredients
-  const [fridgeIngredients, setFridgeIngredients] = useState(
-    ingredients.fridge
-  );
-  const [pantryIngredients, setPantryIngredients] = useState(
-    ingredients.pantry
-  );
-  const [cupboardIngredients, setCupboardIngredients] = useState(
-    ingredients.cupboard
-  );
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-
-  // handleClick function for buttons
-  const handleButtonClick = (ingredient, category) => {
-    // Remove the clicked ingredient from its original category
-    switch (category) {
-      case 'fridge':
-        setFridgeIngredients(prevIngredients =>
-          prevIngredients.filter(item => item !== ingredient)
-        );
-        break;
-      case 'pantry':
-        setPantryIngredients(prevIngredients =>
-          prevIngredients.filter(item => item !== ingredient)
-        );
-        break;
-      case 'cupboard':
-        setCupboardIngredients(prevIngredients =>
-          prevIngredients.filter(item => item !== ingredient)
-        );
-        break;
-      default:
-        break;
-    }
-
-    // Add the clicked ingredient to the selectedIngredients array
-    setSelectedIngredients(prevSelectedIngredients => [
-      ...prevSelectedIngredients,
-      ingredient,
-    ]);
-  };
-
-  const handleRemoveClick = clickedIngredient => {
-    // remove from selectedIngredients onClick
-    setSelectedIngredients(prevSelectedIngredients =>
-      [...prevSelectedIngredients].filter(ingredient => {
-        return ingredient !== clickedIngredient;
-      })
-    );
-
-    // add clickedIngredient to corresponding ingredients category
-  };
-
-  return (
-    <div>
-      <Navbar />
-      <SearchOptions
-        handleButtonClick={handleButtonClick}
-        fridgeIngredients={fridgeIngredients}
-        pantryIngredients={pantryIngredients}
-        cupboardIngredients={cupboardIngredients}
-      />
-      <SearchBar
-        selectedIngredients={selectedIngredients}
-        handleRemoveClick={handleRemoveClick}
-      />
-    </div>
-  );
-}
-
-export default SearchCocktailsPage;
- */
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import SearchOptions from '../components/SearchOptions';
-
+import axios from 'axios';
 import ingredients from '../ingredients.json';
+import { Link } from 'react-router-dom';
 
 function SearchCocktailsPage() {
   // State for ingredients
@@ -93,6 +12,27 @@ function SearchCocktailsPage() {
   const [pantryIngredients, setPantryIngredients] = useState(ingredients.pantry);
   const [cupboardIngredients, setCupboardIngredients] = useState(ingredients.cupboard);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  // State for recipes
+  const [cocktails, setCocktails] = useState(null);
+
+  const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/';
+
+  const getCocktails = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/`);
+      setCocktails(response.data.cocktails);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getCocktails();
+  }, []); 
+
+  console.log(cocktails);
+  
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
@@ -161,6 +101,17 @@ function SearchCocktailsPage() {
         selectedIngredients={selectedIngredients}
         handleRemoveClick={handleRemoveClick}
       />
+      {cocktails &&
+        cocktails.map(cocktail => {
+          return (
+            <Link key={cocktail.id}>
+              <div className='recipe-card'>
+                <img src={cocktail.image_url} alt={cocktail.recipe_title} />
+                <h2>{cocktail.recipe_title}</h2>
+              </div>
+            </Link>
+          );
+        })}
     </div>
   );
 }

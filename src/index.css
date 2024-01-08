@@ -86,3 +86,8 @@ button:hover {
   top: 6rem;
   right: 2rem;
 }
+.recipe-card{
+  width: 200px;
+  height: 100px;
+  background-color: azure;
+}
