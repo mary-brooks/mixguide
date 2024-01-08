@@ -14,8 +14,7 @@ function SearchCocktailsPage() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   // State for recipes
-  const [cocktails, setCocktails] = useState("");
-
+  const [cocktails, setCocktails] = useState([]);
 
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
@@ -32,8 +31,15 @@ function SearchCocktailsPage() {
     getCocktails();
   }, []); 
 
-  console.log(cocktails);
-  
+  // filter cocktails based on selectedIngredients state
+/*   const filteredCocktails = cocktails.filter((cocktail) => {
+    if (selectedIngredients.length >= cocktail.ingredients.length) {
+      return cocktail.ingredients.every((ingredient) =>
+      selectedIngredients.includes(ingredient)
+
+    )
+}
+  });  */ 
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
@@ -103,8 +109,11 @@ function SearchCocktailsPage() {
         handleRemoveClick={handleRemoveClick}
       />
       <div className='search-results'>
-      {cocktails &&
-        cocktails.map(cocktail => {
+
+      {selectedIngredients.length === 0 && <p>Choose some ingredients.</p>}
+
+      {selectedIngredients &&
+        filteredCocktails.map(cocktail => {
           return (
             <Link key={cocktail.id}>
               <div className='recipe-card'>
