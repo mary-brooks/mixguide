@@ -86,8 +86,35 @@ button:hover {
   top: 6rem;
   right: 2rem;
 }
+.search-results {
+  background-color: white;
+  border: 1px solid black;
+  width: 60%;
+  min-height: 2rem;
+  height: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 10rem;
+  right: 2rem;
+}
 .recipe-card{
   width: 200px;
-  height: 100px;
+  height: fit-content;
   background-color: azure;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.recipe-card img {
+  width: 100px;
+  height: auto;
+}
+
+.recipe-card h2 {
+  font-size: 22px;
+  color: black;
+  text-decoration: none;
 }

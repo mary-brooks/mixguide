@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import SearchOptions from '../components/SearchOptions';
@@ -14,14 +14,15 @@ function SearchCocktailsPage() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   // State for recipes
-  const [cocktails, setCocktails] = useState(null);
+  const [cocktails, setCocktails] = useState("");
 
-  const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/';
+
+  const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
     try {
-      const response = await axios.get(`${API_URL}/`);
-      setCocktails(response.data.cocktails);
+      const response = await axios.get(`${API_URL}`);
+      setCocktails(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -101,6 +102,7 @@ function SearchCocktailsPage() {
         selectedIngredients={selectedIngredients}
         handleRemoveClick={handleRemoveClick}
       />
+      <div className='search-results'>
       {cocktails &&
         cocktails.map(cocktail => {
           return (
@@ -112,6 +114,7 @@ function SearchCocktailsPage() {
             </Link>
           );
         })}
+      </div>
     </div>
   );
 }
