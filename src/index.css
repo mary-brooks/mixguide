@@ -99,13 +99,14 @@ button:hover {
   top: 10rem;
   right: 2rem;
 }
-.recipe-card{
+.recipe-card, .list-card {
   width: 200px;
   height: fit-content;
   background-color: azure;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 10px;
 }
 
 .recipe-card img {
@@ -113,8 +114,17 @@ button:hover {
   height: auto;
 }
 
-.recipe-card h2 {
+.recipe-card h2, .list-card h2 {
   font-size: 22px;
   color: black;
   text-decoration: none;
+}
+
+.lists-container {
+  position: absolute;
+  left: 2rem;
+  top: 6rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
