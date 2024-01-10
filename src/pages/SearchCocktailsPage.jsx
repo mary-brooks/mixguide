@@ -16,6 +16,9 @@ function SearchCocktailsPage() {
   // State for recipes
   const [cocktails, setCocktails] = useState([]);
 
+  // State for filtered cocktails
+  const [filteredCocktails, setFilteredCocktails] = useState([]);
+
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
@@ -29,17 +32,21 @@ function SearchCocktailsPage() {
 
   useEffect(() => {
     getCocktails();
-  }, []); 
+  }, []);
 
-  // filter cocktails based on selectedIngredients state
-/*   const filteredCocktails = cocktails.filter((cocktail) => {
-    if (selectedIngredients.length >= cocktail.ingredients.length) {
-      return cocktail.ingredients.every((ingredient) =>
-      selectedIngredients.includes(ingredient)
+  useEffect(() => {
+    // filter cocktails based on selectedIngredients state
+    const cocktailResults = cocktails.filter(cocktail => {
+      return cocktail.ingredients.every(ingredient => {
+        return selectedIngredients
+          .map(selected => selected.ingredient)
+          .includes(ingredient);
 
-    )
-}
-  });  */ 
+      });
+    });
+
+    setFilteredCocktails(cocktailResults);
+  }, [selectedIngredients]);
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
