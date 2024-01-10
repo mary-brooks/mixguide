@@ -30,7 +30,7 @@ function ListsPage() {
         {lists &&
           lists.map(list => {
             return (
-                <Link key={list.id}>
+                <Link key={list.id} to={`/lists/${list.id}`}>
                   <div className='list-card'>
                     <h2>{list.title}</h2>
                   </div>
