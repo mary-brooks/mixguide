@@ -45,6 +45,7 @@ function SingleList() {
           })}
         </div>
       )}
+      <Link className='updateListButton' to={`/lists/updatelist/${listId}`}>Update list</Link>
       <Link className='backToListsButton' to="/lists">Back to lists</Link>
     </div>
   );

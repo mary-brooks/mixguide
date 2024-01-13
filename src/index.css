@@ -153,7 +153,13 @@ button:hover {
 .backToListsButton {
   position: absolute;
   left: 2rem;
-  bottom: 6rem;
+  bottom: 0.5rem;
+  text-decoration: none;
+}
+.updateListButton {
+  position: absolute;
+  left: 12rem;
+  bottom: 0.5rem;
   text-decoration: none;
 }
 

@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const API_URL = "https://cocktail-app-mock-backend.adaptable.app/lists/";
 
@@ -76,13 +77,22 @@ function UpdateListPage() {
 
       setCocktails(cocktailNames);
     } catch (error) {
-      console.log('Error updating list:', error);
+      console.error('Error updating list:', error);
     }
   };
 
   useEffect(() => {
     getList();
   }, [listId]);
+
+  const deleteList = () => {
+    axios
+    .delete(`${API_URL}${listId}`)
+    .then(() => {
+        navigate("/lists")
+    })
+    .catch((error) => console.log('Error deleting list:', error))
+  }
 
   return (
     <div>
@@ -128,6 +138,8 @@ function UpdateListPage() {
             })}
         </div>
         <button type="submit">Update list</button>
+        <button onClick={deleteList}>Delete list</button>
+        <Link className='backToListsButton' to="/lists">Back to lists</Link>
       </form>
     </div>
   );
