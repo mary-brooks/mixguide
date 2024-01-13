@@ -123,7 +123,7 @@ function SearchCocktailsPage() {
       {selectedIngredients &&
         filteredCocktails.map(cocktail => {
           return (
-            <Link key={cocktail.id}>
+            <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
               <div className='recipe-card'>
                 <img src={cocktail.image} alt={cocktail.recipe_title} />
                 <h2>{cocktail.recipe_title}</h2>

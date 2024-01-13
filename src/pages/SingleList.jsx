@@ -35,7 +35,7 @@ function SingleList() {
           <h3>Contributed by: {singleList.created_by}</h3>
           {singleList.cocktails.map(cocktail => {
             return (
-              <Link key={cocktail.id}>
+              <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
                 <div className='recipe-card'>
                   <img src={cocktail.image} alt={cocktail.recipe_title} />
                   <h2>{cocktail.recipe_title}</h2>
