@@ -99,7 +99,8 @@ button:hover {
   top: 10rem;
   right: 2rem;
 }
-.recipe-card, .list-card {
+.recipe-card,
+.list-card {
   width: 200px;
   height: fit-content;
   background-color: azure;
@@ -114,7 +115,8 @@ button:hover {
   height: auto;
 }
 
-.recipe-card h2, .list-card h2 {
+.recipe-card h2,
+.list-card h2 {
   font-size: 22px;
   color: black;
   text-decoration: none;
@@ -127,4 +129,11 @@ button:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.single-list {
+  position: absolute;
+  left: 2rem;
+  top: 6rem;
+  width: 100%;
 }
