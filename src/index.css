@@ -13,6 +13,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: azure;
+  z-index: 5;
 }
 .nav-link {
   text-decoration: none;
@@ -116,7 +117,9 @@ button:hover {
 }
 
 .recipe-card h2,
-.list-card h2 {
+.list-card h2,
+.single-list h2,
+.single-list h3 {
   font-size: 22px;
   color: black;
   text-decoration: none;
@@ -125,7 +128,7 @@ button:hover {
 .lists-container {
   position: absolute;
   left: 2rem;
-  top: 6rem;
+  top: 8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -136,4 +139,50 @@ button:hover {
   left: 2rem;
   top: 6rem;
   width: 100%;
+}
+.addListButton {
+  position: absolute;
+  left: 2rem;
+  top: 6rem;
+  text-decoration: none;
+}
+.backToListsButton {
+  position: absolute;
+  left: 2rem;
+  bottom: 6rem;
+  text-decoration: none;
+}
+
+.addListForm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: fit-content;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1000px;
+}
+
+.checkbox-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
 }

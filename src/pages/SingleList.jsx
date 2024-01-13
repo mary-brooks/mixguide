@@ -37,7 +37,7 @@ function SingleList() {
             return (
               <Link key={cocktail.id}>
                 <div className='recipe-card'>
-                  <img src={cocktail.image_url} alt={cocktail.recipe_title} />
+                  <img src={cocktail.image} alt={cocktail.recipe_title} />
                   <h2>{cocktail.recipe_title}</h2>
                 </div>
               </Link>
@@ -45,6 +45,7 @@ function SingleList() {
           })}
         </div>
       )}
+      <Link className='backToListsButton' to="/lists">Back to lists</Link>
     </div>
   );
 }

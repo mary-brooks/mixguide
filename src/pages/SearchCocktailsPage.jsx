@@ -89,7 +89,7 @@ function SearchCocktailsPage() {
     // Add the ingredient back to its original category
     switch (category) {
       case 'fridge':
-        setFridgeIngredients(prevIngredients => [...prevIngredients, ingredient]);
+        setFridgeIngredients(prevIngredients => [...prevIngredients, ingredient].sort());
         break;
       case 'pantry':
         setPantryIngredients(prevIngredients => [...prevIngredients, ingredient]);
@@ -124,7 +124,7 @@ function SearchCocktailsPage() {
           return (
             <Link key={cocktail.id}>
               <div className='recipe-card'>
-                <img src={cocktail.image_url} alt={cocktail.recipe_title} />
+                <img src={cocktail.image} alt={cocktail.recipe_title} />
                 <h2>{cocktail.recipe_title}</h2>
               </div>
             </Link>

@@ -26,6 +26,9 @@ function ListsPage() {
   return (
     <div>
       <Navbar />
+
+      <Link className='addListButton' to="/lists/addlist">Create new list</Link>
+
       <div className='lists-container'>
         {lists &&
           lists.map(list => {

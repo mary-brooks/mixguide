@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import IngredientButton from './IngredientButton';
 
 function SearchOptions({
