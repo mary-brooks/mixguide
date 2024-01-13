@@ -73,32 +73,36 @@ button:hover {
   border: 1px solid black;
   margin: 1rem;
 }
-
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  position: absolute;
+  top: 6rem;
+  right: 2rem;
+  min-width: 60%;
+  max-width: 60%;
+}
 .search-bar {
   background-color: white;
   border: 1px solid black;
-  width: 60%;
   min-height: 2rem;
   height: fit-content;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  top: 6rem;
-  right: 2rem;
+  flex-wrap: wrap;
 }
 .search-results {
   background-color: white;
   border: 1px solid black;
-  width: 60%;
   min-height: 2rem;
   height: fit-content;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  top: 10rem;
-  right: 2rem;
+  flex-wrap: wrap;
 }
 .recipe-card,
 .list-card {

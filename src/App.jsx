@@ -6,6 +6,7 @@ import SingleCocktail from './pages/SingleCocktail';
 import SearchCocktails from './pages/SearchCocktailsPage'
 import AddList from './pages/AddListPage';
 import SingleList from './pages/SingleList';
+import UpdateList from './pages/UpdateListPage';
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
       <Route path="/lists" element={<Lists />} />
       <Route path="/lists/:listId" element={<SingleList />} />
       <Route path='/lists/addlist' element={<AddList />} />
+      <Route path='/lists/updatelist/:listId' element={<UpdateList />} />
       <Route path="/cocktailoftheday" element={<CocktailOfTheDay />} />
       <Route path="/cocktails/:cocktailId" element={<SingleCocktail />} />
     </Routes>
-    
+
   </div>
 )
 }

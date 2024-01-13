@@ -111,6 +111,7 @@ function SearchCocktailsPage() {
         pantryIngredients={pantryIngredients}
         cupboardIngredients={cupboardIngredients}
       />
+      <div className='search-container'>
       <SearchBar
         selectedIngredients={selectedIngredients}
         handleRemoveClick={handleRemoveClick}
@@ -131,6 +132,8 @@ function SearchCocktailsPage() {
           );
         })}
       </div>
+      </div>
+
     </div>
   );
 }
