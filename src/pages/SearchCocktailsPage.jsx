@@ -140,10 +140,21 @@ function SearchCocktailsPage() {
           {selectedIngredients &&
             filteredCocktails.map(cocktail => {
               return (
-                <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
+                <Link
+                  key={cocktail.id}
+                  to={`/cocktails/${cocktail.id}`}
+                  target='_blank'
+                >
                   <div className='recipe-card'>
-                    <img src={cocktail.image} alt={cocktail.recipe_title} />
-                    <h2>{cocktail.recipe_title}</h2>
+                    <div className='image-container'>
+                      <img src={cocktail.image} alt={cocktail.recipe_title} />
+                    </div>
+                    <div className='text-container'>
+                      <h2>{cocktail.recipe_title}</h2>
+                      <p>Alcohol percentage: {cocktail.alcohol_percentage}</p>
+                      <p>Calories: {cocktail.calories}</p>
+                      <p>Rating: {cocktail.rating}</p>
+                    </div>
                   </div>
                 </Link>
               );

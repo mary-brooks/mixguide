@@ -4,8 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function ListsPage() {
-
-  const [lists, setLists] = useState([])
+  const [lists, setLists] = useState([]);
 
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/lists';
 
@@ -22,27 +21,28 @@ function ListsPage() {
     getLists();
   }, []);
 
-
   return (
     <div>
       <Navbar />
 
-      <Link className='addListButton' to="/lists/addlist">Create new list</Link>
+      <Link className='addListButton' to='/lists/addlist'>
+        Create new list
+      </Link>
 
       <div className='lists-container'>
         {lists &&
           lists.map(list => {
             return (
-                <Link key={list.id} to={`/lists/${list.id}`}>
-                  <div className='list-card'>
-                    <h2>{list.title}</h2>
-                  </div>
-                </Link>
+              <Link key={list.id} to={`/lists/${list.id}`} target='_blank'>
+                <div className='list-card'>
+                  <h2>{list.title}</h2>
+                </div>
+              </Link>
             );
           })}
       </div>
     </div>
   );
-  }
+}
 
 export default ListsPage;
