@@ -14,7 +14,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   color: black;
-  background-color: #f6f6f6;
+  background-color: #ffefca;
 }
 
 h2 {
@@ -28,7 +28,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #f6f6f6;
+  background-color: #ffefca;
   border-bottom: solid 2px #205dd1;
   z-index: 5;
 }
@@ -59,7 +59,7 @@ button:hover {
 }
 
 .ingredients {
-  background-color: #f6f6f6;
+  background-color: #ffefca;
   border: 2px solid #205dd1;
   border-radius: 2rem;
   width: 33%;
@@ -76,7 +76,7 @@ button:hover {
 .fridge,
 .pantry,
 .cupboard {
-  background-color: #f6f6f6;
+  background-color: #ffefca;
   width: 93%;
   height: fit-content;
   margin: 0.5rem;
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .search-bar .ingredient-button {
-  background-color: #f6f6f6;
+  background-color: #ffefca;
 }
 
 .search-bar h2 {
