@@ -44,8 +44,8 @@
     "Wasabi beans",
     "Whipped cream",
     "Whole milk"
-],
-"pantry": [
+  ],
+  "pantry": [
     "Agave syrup",
     "Balsamic vinegar reduction",
     "Basil syrup",
@@ -93,7 +93,6 @@
     "Brandy",
     "Cachaça",
     "Campari",
-    "Champagne",
     "Cherry brandy",
     "Chocolate liqueur",
     "Coconut vodka",
@@ -108,7 +107,6 @@
     "Gin",
     "Hazelnut liqueur",
     "Irish whiskey",
-    "Light rum",
     "Lillet Blanc",
     "Maraschino liqueur",
     "Orange liqueur",
@@ -118,13 +116,13 @@
     "Peychaud's bitters",
     "Pimm's No. 1",
     "Pisco",
-    "Prosecco",
     "Raspberry liqueur",
     "Red wine",
     "Rum",
     "Rye whiskey",
     "Sake",
     "Scotch whisky",
+    "Sparkling Wine",
     "Spiced rum",
     "Sweet Vermouth",
     "Tequila",
@@ -134,5 +132,5 @@
     "Whiskey",
     "White rum",
     "White wine"
-]
+  ]
 }

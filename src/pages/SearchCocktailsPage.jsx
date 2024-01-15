@@ -8,9 +8,15 @@ import { Link } from 'react-router-dom';
 
 function SearchCocktailsPage() {
   // State for ingredients
-  const [fridgeIngredients, setFridgeIngredients] = useState(ingredients.fridge);
-  const [pantryIngredients, setPantryIngredients] = useState(ingredients.pantry);
-  const [cupboardIngredients, setCupboardIngredients] = useState(ingredients.cupboard);
+  const [fridgeIngredients, setFridgeIngredients] = useState(
+    ingredients.fridge
+  );
+  const [pantryIngredients, setPantryIngredients] = useState(
+    ingredients.pantry
+  );
+  const [cupboardIngredients, setCupboardIngredients] = useState(
+    ingredients.cupboard
+  );
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   // State for recipes
@@ -41,7 +47,6 @@ function SearchCocktailsPage() {
         return selectedIngredients
           .map(selected => selected.ingredient)
           .includes(ingredient);
-
       });
     });
 
@@ -89,13 +94,21 @@ function SearchCocktailsPage() {
     // Add the ingredient back to its original category
     switch (category) {
       case 'fridge':
-        setFridgeIngredients(prevIngredients => [...prevIngredients, ingredient].sort());
+        setFridgeIngredients(prevIngredients =>
+          [...prevIngredients, ingredient].sort()
+        );
         break;
       case 'pantry':
-        setPantryIngredients(prevIngredients => [...prevIngredients, ingredient]);
+        setPantryIngredients(prevIngredients => [
+          ...prevIngredients,
+          ingredient,
+        ]);
         break;
       case 'cupboard':
-        setCupboardIngredients(prevIngredients => [...prevIngredients, ingredient]);
+        setCupboardIngredients(prevIngredients => [
+          ...prevIngredients,
+          ingredient,
+        ]);
         break;
       default:
         break;
@@ -112,28 +125,31 @@ function SearchCocktailsPage() {
         cupboardIngredients={cupboardIngredients}
       />
       <div className='search-container'>
-      <SearchBar
-        selectedIngredients={selectedIngredients}
-        handleRemoveClick={handleRemoveClick}
-      />
-      <div className='search-results'>
+        <SearchBar
+          selectedIngredients={selectedIngredients}
+          handleRemoveClick={handleRemoveClick}
+        />
 
-      {selectedIngredients.length === 0 && <p>Choose some ingredients.</p>}
+        {filteredCocktails.length !== 0 && (
+          <h2>You can make these cocktails with your ingredients:</h2>
+        )}
 
-      {selectedIngredients &&
-        filteredCocktails.map(cocktail => {
-          return (
-            <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
-              <div className='recipe-card'>
-                <img src={cocktail.image} alt={cocktail.recipe_title} />
-                <h2>{cocktail.recipe_title}</h2>
-              </div>
-            </Link>
-          );
-        })}
+        <div className='search-results'>
+          {selectedIngredients.length === 0 && <p>Choose some ingredients.</p>}
+
+          {selectedIngredients &&
+            filteredCocktails.map(cocktail => {
+              return (
+                <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
+                  <div className='recipe-card'>
+                    <img src={cocktail.image} alt={cocktail.recipe_title} />
+                    <h2>{cocktail.recipe_title}</h2>
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
       </div>
-      </div>
-
     </div>
   );
 }
