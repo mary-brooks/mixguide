@@ -31,22 +31,47 @@ function SingleList() {
 
       {singleList && (
         <div className='single-list'>
-          <h2>{singleList.title}</h2>
-          <h3>Contributed by: {singleList.created_by}</h3>
-          {singleList.cocktails.map(cocktail => {
-            return (
-              <Link key={cocktail.id} to={`/cocktails/${cocktail.id}`}>
-                <div className='recipe-card'>
-                  <img src={cocktail.image} alt={cocktail.recipe_title} />
-                  <h2>{cocktail.recipe_title}</h2>
-                </div>
-              </Link>
-            );
-          })}
+          <h1>{singleList.title}</h1>
+          <p>
+            Contributed by:
+            <span> {singleList.created_by}</span>
+          </p>
+          <div className='single-list-container'>
+            {singleList.cocktails.map(cocktail => {
+              return (
+                <Link
+                  key={cocktail.id}
+                  to={`/cocktails/${cocktail.id}`}
+                  target='_blank'
+                >
+                  <div className='recipe-card'>
+                    <div className='image-container'>
+                      <img src={cocktail.image} alt={cocktail.recipe_title} />
+                    </div>
+                    <div className='text-container'>
+                      <h2>{cocktail.recipe_title}</h2>
+                      <p>Alcohol percentage: {cocktail.alcohol_percentage}</p>
+                      <p>Calories: {cocktail.calories}</p>
+                      <p>Rating: {cocktail.rating}</p>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <div className='button-container'>
+            <Link
+              className='update-list-button'
+              to={`/lists/updatelist/${listId}`}
+            >
+              Update list
+            </Link>
+            <Link className='back-to-lists-button' to='/lists'>
+              Back to lists
+            </Link>
+          </div>
         </div>
       )}
-      <Link className='updateListButton' to={`/lists/updatelist/${listId}`}>Update list</Link>
-      <Link className='backToListsButton' to="/lists">Back to lists</Link>
     </div>
   );
 }

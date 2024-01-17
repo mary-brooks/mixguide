@@ -68,7 +68,9 @@ button:hover {
 .ingredient-button,
 .add-list-button,
 .submit-list-button,
-.delete-list-button {
+.delete-list-button,
+.update-list-button,
+.back-to-lists-button {
   font-size: 18px;
   color: #205dd1;
   background-color: #fffff2;
@@ -99,6 +101,7 @@ button:hover {
   display: flex;
   gap: 2rem;
   align-self: center;
+  margin-bottom: 1rem;
 }
 
 .ingredients {
@@ -224,14 +227,12 @@ button:hover {
   max-height: 100%;
 }
 
-.lists-container {
+.lists-container,
+.single-list-container {
   background-color: #fffff2;
   width: 90%;
   min-height: 2rem;
   height: fit-content;
-  position: absolute;
-  left: 2rem;
-  top: 10rem;
   border: 2px solid #205dd1;
   border-radius: 2rem;
   padding: 1rem;
@@ -240,15 +241,14 @@ button:hover {
   flex-wrap: wrap;
 }
 
-.list-card {
-  background-color: #faf0e6;
+.lists-container {
+  position: absolute;
+  left: 2rem;
+  top: 10rem;
 }
 
-.single-list h2,
-.single-list h3 {
-  font-size: 22px;
-  color: black;
-  text-decoration: none;
+.list-card {
+  background-color: #faf0e6;
 }
 
 .single-list {
@@ -256,6 +256,20 @@ button:hover {
   left: 2rem;
   top: 6rem;
   width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.single-list > p {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.single-list span {
+  font-weight: 700;
 }
 
 .addListForm {
