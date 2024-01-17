@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import cocktailIllustration from '../assets/images/cocktail-list-default.png';
+
 function ListsPage() {
   const [lists, setLists] = useState([]);
 
@@ -25,7 +27,7 @@ function ListsPage() {
     <div>
       <Navbar />
 
-      <Link className='addListButton' to='/lists/addlist'>
+      <Link className='add-list-button' to='/lists/addlist'>
         Create new list
       </Link>
 
@@ -33,9 +35,20 @@ function ListsPage() {
         {lists &&
           lists.map(list => {
             return (
-              <Link key={list.id} to={`/lists/${list.id}`} target='_blank'>
+              <Link key={list.id} to={`/lists/${list.id}`}>
                 <div className='list-card'>
-                  <h2>{list.title}</h2>
+                  <div className='image-container'>
+                    {
+                      <img
+                        src={cocktailIllustration}
+                        alt='cocktail illustration'
+                      />
+                    }
+                  </div>
+                  <div className='text-container'>
+                    <h2>{list.title}</h2>
+                    <p> Created by: {list.created_by}</p>
+                  </div>
                 </div>
               </Link>
             );
