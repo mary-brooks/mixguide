@@ -118,6 +118,7 @@ function SearchCocktailsPage() {
   return (
     <div>
       <Navbar />
+      <div className='search-cocktails-page'>
       <SearchOptions
         handleButtonClick={handleButtonClick}
         fridgeIngredients={fridgeIngredients}
@@ -161,6 +162,8 @@ function SearchCocktailsPage() {
             })}
         </div>
       </div>
+      </div>
+
     </div>
   );
 }

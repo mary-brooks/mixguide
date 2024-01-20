@@ -11,16 +11,19 @@
 }
 html, body {
   height: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 body {
   font-weight: 400;
   font-size: 16px;
   color: #205dd1;
-  background-color: #faf0e6;
+  background-color: #fffff2;
   width: 100vw;
   margin: 0;
   padding: 0;
+  background-image: url('./assets/images/background-img.png');
 }
 
 h2 {
@@ -39,7 +42,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #faf0e6;
+  background-color: #fffff2;
   border-bottom: solid 2px #205dd1;
   z-index: 5;
 }
@@ -48,12 +51,6 @@ nav {
   font-size: 20px;
   font-weight: 700;
   text-decoration: none;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden; /*removes scrollbars caused by overflow of position absolute*/
 }
 
 /* home page styles */
@@ -65,9 +62,9 @@ html, body {
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-color: #f4f6fc;
   margin: 0;
   padding: 0;
+  overflow-y: hidden; /*removes scrollbars caused by overflow of position absolute*/
 }
 
 .star-left {
@@ -178,7 +175,6 @@ button:hover {
 }
 
 .ingredients {
-  background-color: #faf0e6;
   border: 2px solid #205dd1;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
@@ -196,7 +192,6 @@ button:hover {
 .fridge,
 .pantry,
 .cupboard {
-  background-color: #faf0e6;
   width: 93%;
   height: fit-content;
   margin: 0.5rem;
@@ -207,6 +202,11 @@ button:hover {
 .cupboard h2 {
   color: #205dd1;
   margin: 0.5rem;
+}
+
+.search-cocktails-page {
+  height: 100%;
+  width: 100%;
 }
 
 .search-container {
@@ -232,25 +232,37 @@ button:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
   min-height: 2rem;
-  height: fit-content;
+  max-height: 10rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem;
-}
-
-.search-bar .ingredient-button {
-  background-color: #faf0e6;
+  overflow-y: scroll;
 }
 
 .search-bar h2 {
   width: 100%;
   margin: 0 0 1rem;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fffff2;
+}
+::-webkit-scrollbar-thumb {
+  background: #205dd1;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #588ff6;
+}
+.hide-scrollbar-search{
+  overflow: hidden;
+}
 
 .search-results {
-  background-color: #fffff2;
   border: 2px solid #205dd1;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
@@ -267,7 +279,7 @@ button:hover {
 .list-card {
   width: 100%;
   height: fit-content;
-  background-color: #faf0e6;
+  background-color: #fffff2;
   border-radius: 2rem;
   display: flex;
   justify-content: space-between;

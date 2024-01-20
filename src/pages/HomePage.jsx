@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import logo from '../assets/images/logo2.png';
 import starLeft from '../assets/images/star-icon-left.png';
 import starRight from '../assets/images/star-icon-right.png';
-import background from '../assets/images/background-img.png';
 import 'animate.css';
 
 function HomePage() {
   return (
-    <div className="home-page" style={{ backgroundImage: `url(${background})` }}>
+    <div className="home-page">
 
         <img className="star-right animate__animated animate__rollIn" src={starRight} alt='star-icon' />
 
