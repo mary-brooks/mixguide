@@ -10,10 +10,11 @@
   box-sizing: border-box;
   font-family: 'Playfair Display', serif;
 }
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -127,8 +128,6 @@ nav {
   background-color: #fffff2;
 }
 
-
-
 /* button styles */
 
 button:hover {
@@ -206,7 +205,6 @@ button:hover {
 .search-cocktails-page {
   height: 100%;
   width: 100%;
-  overflow: scroll;
   position: absolute;
   top: 4rem;
   padding: 1rem 0;
@@ -246,7 +244,7 @@ button:hover {
   margin: 0 0 1rem;
 }
 
-.hide-scrollbar-search{
+.hide-scrollbar-search {
   overflow: scroll;
   min-height: 2rem;
   max-height: 8rem;
@@ -266,7 +264,6 @@ button:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #588ff6;
 }
-
 
 .search-results {
   border: 2px solid #205dd1;
@@ -296,8 +293,8 @@ button:hover {
 
 .recipe-card .image-container,
 .list-card .image-container {
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,42 +437,78 @@ button:hover {
 }
 
 .cocktail-container {
-  height: 100%;
-  width: 100%;
+  outline: red solid 1px;
   position: absolute;
-  overflow: scroll;
-  top: 4rem;
-  padding: 1rem 0;
+  left: 0;
+  right: 0;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.cocktail-details {
+.cocktail-details .image-container {
+  width: 30rem;
+  height: 30rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
 }
 
 .cocktail-details img {
-  width: 25%;
-  height: auto;
-  margin-right: 6rem;
+  width: auto;
+  max-width: 30rem;
+  max-height: 100%;
 }
 
-.cocktail-ingredients h1{
-  font-family: 'Pinyon Script', cursive;
-  font-size: 4.5rem;
-  font-weight: 400;
-  color:#205dd1;
-  text-shadow: 1px 1px 5px #fffff2, 1px 1px 5px #fffff2, 1px 1px 5px #fffff2, 1px 1px 5px #fffff2;
-  margin-bottom: 2rem;
-}
-
-.cocktail-ingredients h2 {
+.cocktail-container h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+.cocktail-details {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+}
 
+.cocktail-ingredients {
+  width: 50rem;
+}
+
+.cocktail-ingredients h1 {
+  font-family: 'Pinyon Script', Arial, Helvetica, sans-serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #205dd1;
+  text-shadow: 1px 1px 5px #fffff2, 1px 1px 5px #fffff2, 1px 1px 5px #fffff2,
+    1px 1px 5px #fffff2;
+  margin-bottom: 2rem;
+}
 .cocktail-ingredients ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 60%;
+  max-height: 8rem;
   list-style-type: circle;
   margin-left: 2rem;
   margin-bottom: 1rem;
   line-height: 2rem;
+}
+.cocktail-ingredients li {
+  width: fit-content;
+  margin-right: 4rem;
+}
+.cocktail-instructions {
+  width: 80rem;
+  margin-top: 2rem;
+}
+.cocktail-instructions ul {
+  margin-bottom: 1rem;
+  line-height: 2rem;
+}
+.cocktail-instructions li {
+  list-style-type: none;
 }
