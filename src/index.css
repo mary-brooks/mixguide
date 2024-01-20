@@ -1,6 +1,7 @@
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 
 /* Reset CSS */
 * {
@@ -12,7 +13,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -64,7 +65,6 @@ nav {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: hidden; /*removes scrollbars caused by overflow of position absolute*/
 }
 
 .star-left {
@@ -184,7 +184,6 @@ button:hover {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top: 6rem;
   left: 2rem;
   padding: 0;
 }
@@ -207,6 +206,10 @@ button:hover {
 .search-cocktails-page {
   height: 100%;
   width: 100%;
+  overflow: scroll;
+  position: absolute;
+  top: 4rem;
+  padding: 1rem 0;
 }
 
 .search-container {
@@ -215,10 +218,8 @@ button:hover {
   justify-content: flex-start;
   gap: 2rem;
   position: absolute;
-  top: 6rem;
   right: 2rem;
-  min-width: 60%;
-  max-width: 60%;
+  width: 60%;
 }
 
 .search-container > h2 {
@@ -238,13 +239,20 @@ button:hover {
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem;
-  overflow-y: scroll;
 }
 
 .search-bar h2 {
   width: 100%;
   margin: 0 0 1rem;
 }
+
+.hide-scrollbar-search{
+  overflow: scroll;
+  min-height: 2rem;
+  max-height: 8rem;
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -258,9 +266,7 @@ button:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #588ff6;
 }
-.hide-scrollbar-search{
-  overflow: hidden;
-}
+
 
 .search-results {
   border: 2px solid #205dd1;
@@ -431,4 +437,45 @@ button:hover {
 .checkbox-item > label {
   padding-left: 0.5rem;
   font-size: 1.25rem;
+}
+
+.cocktail-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: scroll;
+  top: 4rem;
+  padding: 1rem 0;
+}
+
+.cocktail-details {
+  display: flex;
+  justify-content: center;
+}
+
+.cocktail-details img {
+  width: 25%;
+  height: auto;
+  margin-right: 6rem;
+}
+
+.cocktail-ingredients h1{
+  font-family: 'Pinyon Script', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color:#205dd1;
+  text-shadow: 1px 1px 5px #fffff2, 1px 1px 5px #fffff2, 1px 1px 5px #fffff2, 1px 1px 5px #fffff2;
+  margin-bottom: 2rem;
+}
+
+.cocktail-ingredients h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cocktail-ingredients ul {
+  list-style-type: circle;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  line-height: 2rem;
 }

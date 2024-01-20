@@ -58,21 +58,26 @@ function CocktailOfTheDayPage() {
     <div>
       <Navbar />
       {cocktailOfTheDay && (
+        <div className='cocktail-container'>
         <div className='cocktail-details'>
           <img src={cocktailOfTheDay.image} alt={`image of a ${cocktailOfTheDay.recipe_title}`} />
-          <h1>{cocktailOfTheDay.recipe_title}</h1>
-          <h2>Ingredients:</h2>
-          <ul>
-            {cocktailOfTheDay.ingredients.map((ingredient) => (
-              <li key={ingredient}>{ingredient}</li>
-            ))}
-          </ul>
-          <h2>Garnish:</h2>
-          <ul>
-            {cocktailOfTheDay.garnish.map((garnish) => (
-              <li key={garnish}>{garnish}</li>
-            ))}
-          </ul>
+          <div className='cocktail-ingredients'>
+            <h1>{cocktailOfTheDay.recipe_title}</h1>
+            <h2>Ingredients:</h2>
+            <ul>
+              {cocktailOfTheDay.ingredients.map((ingredient) => (
+                <li key={ingredient}>{ingredient}</li>
+              ))}
+            </ul>
+            <h2>Garnish:</h2>
+            <ul>
+              {cocktailOfTheDay.garnish.map((garnish) => (
+                <li key={garnish}>{garnish}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className='cocktail-instructions'>
           <h2>Instructions:</h2>
           <ul>
             {cocktailOfTheDay.instructions.map((instruction) => (
@@ -86,14 +91,10 @@ function CocktailOfTheDayPage() {
           <h3>Rating:</h3>
           <span>{cocktailOfTheDay.rating}</span>
         </div>
+        </div>
       )}
 
-      <Link className='backToListsButton' to="/lists">
-        Back to lists
-      </Link>
-      <Link className='backToSearchButton' to="/cocktails">
-        Back to search
-      </Link>
+      <Link className='backToHome' to="/">Home</Link>
     </div>
   );
 }

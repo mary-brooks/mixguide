@@ -59,8 +59,7 @@ function CocktailDetails() {
         </div>
       )}
 
-      <Link className='backToListsButton' to="/lists">Back to lists</Link>
-      <Link className='backToSearchButton' to="/cocktails">Back to search</Link>
+      <Link className='backToHome' to="/">Home</Link>
     </div>
   );
 
