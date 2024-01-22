@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
+import homeIcon from '../assets/images/home-page-icon.png';
+
 function CocktailOfTheDayPage() {
   const [cocktailOfTheDay, setCocktailOfTheDay] = useState(null);
 
@@ -93,19 +95,26 @@ function CocktailOfTheDayPage() {
                 <li key={instruction}>{instruction}</li>
               ))}
             </ul>
-            <h3>Alcohol percentage:</h3>
-            <span>{cocktailOfTheDay.alcohol_percentage}</span>
-            <h3>Calories:</h3>
-            <span>{cocktailOfTheDay.calories}</span>
-            <h3>Rating:</h3>
-            <span>{cocktailOfTheDay.rating}</span>
+            <div className='cocktail-info-container'>
+              <div className='cocktail-info'>
+                <h3>Alcohol percentage:</h3>
+                <span>{cocktailOfTheDay.alcohol_percentage}</span>
+              </div>
+              <div className='cocktail-info'>
+                <h3>Calories:</h3>
+                <span>{cocktailOfTheDay.calories}</span>
+              </div>
+              <div className='cocktail-info'>
+                <h3>Rating:</h3>
+                <span>{cocktailOfTheDay.rating}</span>
+              </div>
+            </div>
           </div>
+          <Link class='back-to-home' to='/'>
+            <img src={homeIcon} alt='home-icon' />
+          </Link>
         </div>
       )}
-
-      <Link className='backToHome' to='/'>
-        Home
-      </Link>
     </div>
   );
 }

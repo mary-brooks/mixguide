@@ -280,7 +280,7 @@ button:hover {
 
 .recipe-card,
 .list-card {
-  width: 100%;
+  width: fit-content;
   height: fit-content;
   background-color: #fffff2;
   border-radius: 2rem;
@@ -302,10 +302,14 @@ button:hover {
 
 .recipe-card .text-container,
 .list-card .text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
   color: #205dd1;
-  width: 200px;
-  height: 150px;
-  padding: 0.5rem;
+  width: 12.5rem;
+  height: fit-content;
+  margin-left: 1rem;
 }
 
 .recipe-card img,
@@ -436,35 +440,32 @@ button:hover {
   font-size: 1.25rem;
 }
 
+/* cocktail of the day page & single cocktail page styles */
+
 .cocktail-container {
-  outline: red solid 1px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 5rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
 }
 
 .cocktail-details .image-container {
-  width: 30rem;
-  height: 30rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 2rem;
+  align-self: center;
 }
 
 .cocktail-details img {
   width: auto;
   max-width: 30rem;
-  max-height: 100%;
+  height: auto;
+  max-height: 30rem;
 }
 
 .cocktail-container h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 .cocktail-details {
@@ -474,7 +475,8 @@ button:hover {
 }
 
 .cocktail-ingredients {
-  width: 50rem;
+  width: fit-content;
+  max-width: 35rem;
 }
 
 .cocktail-ingredients h1 {
@@ -490,7 +492,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: 60%;
   max-height: 8rem;
   list-style-type: circle;
   margin-left: 2rem;
@@ -502,8 +503,9 @@ button:hover {
   margin-right: 4rem;
 }
 .cocktail-instructions {
-  width: 80rem;
-  margin-top: 2rem;
+  width: fit-content;
+  margin-top: 1rem;
+  align-self: flex-start;
 }
 .cocktail-instructions ul {
   margin-bottom: 1rem;
@@ -511,4 +513,36 @@ button:hover {
 }
 .cocktail-instructions li {
   list-style-type: none;
+}
+
+.cocktail-info-container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 6rem;
+  margin-top: 1rem;
+}
+
+.cocktail-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.cocktail-info h3 {
+  padding-right: 0.5rem;
+}
+
+.back-to-home {
+  margin: 4rem 0;
+  align-self: center;
+}
+
+.back-to-home img {
+  width: 6rem;
+  height: auto;
+  border: 2px solid #205dd1;
+  border-radius: 50%;
 }
