@@ -31,6 +31,9 @@ function SearchCocktailsPage() {
   // State for mocktail only filter
   const [mocktailOnly, setMocktailOnly] = useState(false);
 
+   // State for cocktail only filter
+   const [cocktailOnly, setCocktailOnly] = useState(false);
+
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
@@ -71,12 +74,15 @@ function SearchCocktailsPage() {
       // Check if it's a mocktail
       const mocktailCondition = mocktailOnly ? cocktail.is_mocktail : true;
 
+      // Check if it's a cocktail
+      const cocktailCondition = cocktailOnly ? cocktail.is_cocktail : true;
+
       // Combine the conditions based on user-selected filters
-      return missingIngredientCondition && mocktailCondition;
+      return missingIngredientCondition && mocktailCondition && cocktailCondition;
     });
 
     setFilteredCocktails(cocktailResults);
-  }, [selectedIngredients, showMissingIngredient, mocktailOnly]);
+  }, [selectedIngredients, showMissingIngredient, mocktailOnly, cocktailOnly]);
 
 
 
@@ -168,6 +174,11 @@ function SearchCocktailsPage() {
       setMocktailOnly(!mocktailOnly)
     }
 
+    // function to toggle mocktail only checkbox
+    const toggleCocktailOnly = () => {
+      setCocktailOnly(!cocktailOnly)
+    }
+
 
   return (
     <div>
@@ -185,6 +196,7 @@ function SearchCocktailsPage() {
           handleRemoveClick={handleRemoveClick}
           toggleMissingIng={toggleMissingIng}
           toggleMocktailOnly={toggleMocktailOnly}
+          toggleCocktailOnly={toggleCocktailOnly}
         />
 
         {filteredCocktails.length !== 0 && (

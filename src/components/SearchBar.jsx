@@ -1,6 +1,6 @@
 import IngredientButton from './IngredientButton';
 
-function SearchBar({ selectedIngredients, handleRemoveClick, toggleMissingIng, toggleMocktailOnly }) {
+function SearchBar({ selectedIngredients, handleRemoveClick, toggleMissingIng, toggleMocktailOnly, toggleCocktailOnly }) {
   return (
     <div>
     <div className='search-bar'>
@@ -30,6 +30,11 @@ function SearchBar({ selectedIngredients, handleRemoveClick, toggleMissingIng, t
         type="checkbox"
         onChange={() => toggleMocktailOnly()} />
         <label htmlFor="mocktail-only-checkbox">Mocktails only</label>
+        <input
+        id='cocktail-only-checkbox'
+        type="checkbox"
+        onChange={() => toggleCocktailOnly()} />
+        <label htmlFor="cocktail-only-checkbox">Cocktails only</label>
       </form>
     </div>
     </div>
