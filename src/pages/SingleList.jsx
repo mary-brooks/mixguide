@@ -50,7 +50,7 @@ function SingleList() {
                     </div>
                     <div className='text-container'>
                       <h2>{cocktail.recipe_title}</h2>
-                      <p>Alcohol percentage: {cocktail.alcohol_percentage}</p>
+                      <p>Alcohol: {cocktail.alcohol_percentage}</p>
                       <p>Calories: {cocktail.calories}</p>
                       <p>Rating: {cocktail.rating}</p>
                     </div>

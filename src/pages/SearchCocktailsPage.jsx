@@ -61,14 +61,18 @@ function SearchCocktailsPage() {
       });
 
       // Check if the user has selected every ingredient or is missing at most one
-      return (
-        (!showMissingIngredient && selectedCount === cocktail.ingredients.length)  ||
-        (showMissingIngredient && selectedCount === cocktail.ingredients.length - 1)
-      );
+      if (showMissingIngredient) {
+        // Show cocktails missing one ingredient or having no missing ingredients
+        return selectedCount === cocktail.ingredients.length - 1 || selectedCount === cocktail.ingredients.length;
+      } else {
+        // Show cocktails with every selected ingredient
+        return selectedCount === cocktail.ingredients.length;
+      }
     });
 
     setFilteredCocktails(cocktailResults);
   }, [selectedIngredients, showMissingIngredient]);
+
 
 
   // handleClick function for buttons
@@ -133,9 +137,26 @@ function SearchCocktailsPage() {
     }
   };
 
+  // function to toggle missing ingredient checkbox
   const toggleMissingIng = () => {
     setShowMissingIngredient(!showMissingIngredient)
   }
+
+  // helper function to check if a cocktail recipe has a missing ingredient
+  function findMissingIngredient(cocktail) {
+    const selectedIngredientsSet = new Set(
+      selectedIngredients.map(selected => selected.ingredient)
+    );
+
+    for (const ingredient of cocktail.ingredients) {
+      if (!selectedIngredientsSet.has(ingredient)) {
+        return ingredient;
+      }
+    }
+
+    return null; // Return null if no missing ingredient found
+  }
+
 
   return (
     <div>
@@ -163,6 +184,7 @@ function SearchCocktailsPage() {
 
           {selectedIngredients &&
             filteredCocktails.map(cocktail => {
+              const missingIngredient = findMissingIngredient(cocktail);
               return (
                 <Link
                   key={cocktail.id}
@@ -170,15 +192,18 @@ function SearchCocktailsPage() {
                   target='_blank'
                 >
                   <div className='recipe-card'>
-                    <div className='image-container'>
-                      <img src={cocktail.image} alt={cocktail.recipe_title} />
+                    <div className='recipe-card-info'>
+                      <div className='image-container'>
+                        <img src={cocktail.image} alt={cocktail.recipe_title} />
+                      </div>
+                      <div className='text-container'>
+                        <h2>{cocktail.recipe_title}</h2>
+                        <p>Alcohol: {cocktail.alcohol_percentage}</p>
+                        <p>Calories: {cocktail.calories}</p>
+                        <p>Rating: {cocktail.rating}</p>
+                      </div>
                     </div>
-                    <div className='text-container'>
-                      <h2>{cocktail.recipe_title}</h2>
-                      <p>Alcohol percentage: {cocktail.alcohol_percentage}</p>
-                      <p>Calories: {cocktail.calories}</p>
-                      <p>Rating: {cocktail.rating}</p>
-                    </div>
+                    {missingIngredient && <p>Missing ingredient: {missingIngredient}</p>}
                   </div>
                 </Link>
               );
