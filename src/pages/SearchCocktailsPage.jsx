@@ -28,6 +28,9 @@ function SearchCocktailsPage() {
   // State for missing one ingredient checkbox
   const [showMissingIngredient, setShowMissingIngredient] = useState(false);
 
+  // State for mocktail only filter
+  const [mocktailOnly, setMocktailOnly] = useState(false);
+
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
@@ -61,17 +64,20 @@ function SearchCocktailsPage() {
       });
 
       // Check if the user has selected every ingredient or is missing at most one
-      if (showMissingIngredient) {
-        // Show cocktails missing one ingredient or having no missing ingredients
-        return selectedCount === cocktail.ingredients.length - 1 || selectedCount === cocktail.ingredients.length;
-      } else {
-        // Show cocktails with every selected ingredient
-        return selectedCount === cocktail.ingredients.length;
-      }
+      const missingIngredientCondition = showMissingIngredient
+        ? selectedCount === cocktail.ingredients.length - 1 || selectedCount === cocktail.ingredients.length
+        : selectedCount === cocktail.ingredients.length;
+
+      // Check if it's a mocktail
+      const mocktailCondition = mocktailOnly ? cocktail.is_mocktail : true;
+
+      // Combine the conditions based on user-selected filters
+      return missingIngredientCondition && mocktailCondition;
     });
 
     setFilteredCocktails(cocktailResults);
-  }, [selectedIngredients, showMissingIngredient]);
+  }, [selectedIngredients, showMissingIngredient, mocktailOnly]);
+
 
 
 
@@ -157,6 +163,11 @@ function SearchCocktailsPage() {
     return null; // Return null if no missing ingredient found
   }
 
+    // function to toggle mocktail only checkbox
+    const toggleMocktailOnly = () => {
+      setMocktailOnly(!mocktailOnly)
+    }
+
 
   return (
     <div>
@@ -173,6 +184,7 @@ function SearchCocktailsPage() {
           selectedIngredients={selectedIngredients}
           handleRemoveClick={handleRemoveClick}
           toggleMissingIng={toggleMissingIng}
+          toggleMocktailOnly={toggleMocktailOnly}
         />
 
         {filteredCocktails.length !== 0 && (
