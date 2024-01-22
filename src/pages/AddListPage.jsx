@@ -11,6 +11,8 @@ function AddListPage() {
   const [cocktailOptions, setCocktailOptions] = useState([]);
   const [chosenCocktails, setChosenCocktails] = useState([]);
 
+  const navigate = useNavigate();
+
   const handleTitle = e => {
     setTitle(e.target.value);
   };
@@ -56,6 +58,8 @@ function AddListPage() {
       setTitle('');
       setCreated_by('');
       setCocktails([]);
+
+      navigate('/lists');
     } catch (error) {
       console.error('Error creating list:', error);
     }
