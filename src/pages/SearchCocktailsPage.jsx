@@ -25,6 +25,9 @@ function SearchCocktailsPage() {
   // State for filtered cocktails
   const [filteredCocktails, setFilteredCocktails] = useState([]);
 
+  // State for missing one ingredient checkbox
+  const [showMissingIngredient, setShowMissingIngredient] = useState(false);
+
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
@@ -59,13 +62,13 @@ function SearchCocktailsPage() {
 
       // Check if the user has selected every ingredient or is missing at most one
       return (
-        selectedCount === cocktail.ingredients.length ||
-        selectedCount === cocktail.ingredients.length - 1
+        (!showMissingIngredient && selectedCount === cocktail.ingredients.length)  ||
+        (showMissingIngredient && selectedCount === cocktail.ingredients.length - 1)
       );
     });
 
     setFilteredCocktails(cocktailResults);
-  }, [selectedIngredients]);
+  }, [selectedIngredients, showMissingIngredient]);
 
 
   // handleClick function for buttons
@@ -130,6 +133,10 @@ function SearchCocktailsPage() {
     }
   };
 
+  const toggleMissingIng = () => {
+    setShowMissingIngredient(!showMissingIngredient)
+  }
+
   return (
     <div>
       <Navbar />
@@ -144,6 +151,7 @@ function SearchCocktailsPage() {
         <SearchBar
           selectedIngredients={selectedIngredients}
           handleRemoveClick={handleRemoveClick}
+          toggleMissingIng={toggleMissingIng}
         />
 
         {filteredCocktails.length !== 0 && (
