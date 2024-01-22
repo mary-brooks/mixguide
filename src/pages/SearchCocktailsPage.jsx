@@ -43,15 +43,30 @@ function SearchCocktailsPage() {
   useEffect(() => {
     // filter cocktails based on selectedIngredients state
     const cocktailResults = cocktails.filter(cocktail => {
-      return cocktail.ingredients.every(ingredient => {
-        return selectedIngredients
-          .map(selected => selected.ingredient)
-          .includes(ingredient);
+      let selectedCount = 0;
+
+      // Check if each ingredient in the cocktail matches each selected ingredient
+      cocktail.ingredients.forEach(ingredient => {
+        if (
+          selectedIngredients
+            .map(selected => selected.ingredient)
+            .includes(ingredient)
+        ) {
+          // Increment the count for each match
+          selectedCount++;
+        }
       });
+
+      // Check if the user has selected every ingredient or is missing at most one
+      return (
+        selectedCount === cocktail.ingredients.length ||
+        selectedCount === cocktail.ingredients.length - 1
+      );
     });
 
     setFilteredCocktails(cocktailResults);
   }, [selectedIngredients]);
+
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
