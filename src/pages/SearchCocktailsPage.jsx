@@ -258,12 +258,12 @@ function SearchCocktailsPage() {
           toggleColdOnly={toggleColdOnly}
         />
 
+        <div className='search-results'>
+
         {filteredCocktails.length !== 0 && (
           <h2>You can make these cocktails with your ingredients:</h2>
         )}
-
-        <div className='search-results'>
-          {selectedIngredients.length === 0 && <p>Choose some ingredients.</p>}
+          {selectedIngredients.length === 0 && <p>Select your ingredients to start</p>}
 
           {selectedIngredients &&
             filteredCocktails.map(cocktail => {
@@ -281,12 +281,14 @@ function SearchCocktailsPage() {
                       </div>
                       <div className='text-container'>
                         <h2>{cocktail.recipe_title}</h2>
+                        <div className='text-container-info'>
                         <p>Alcohol: {cocktail.alcohol_percentage}</p>
                         <p>Calories: {cocktail.calories}</p>
                         <p>Rating: {cocktail.rating}</p>
+                        </div>
                       </div>
                     </div>
-                    {missingIngredient && <p>You're only missing {missingIngredient}</p>}
+                    {missingIngredient && <p>You are missing <span className="missing-ing">{missingIngredient}</span></p>}
                   </div>
                 </Link>
               );

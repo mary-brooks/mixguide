@@ -14,12 +14,12 @@ function HomePage() {
 
         <img className="star-left animate__animated animate__rollIn" src={starLeft} alt='star-icon' />
 
-      <Link className="get-started-btn animate__animated animate__fadeInDown animate__delay-1s" to='/cocktails'><button>Get Started</button></Link>
+      <Link className="get-started-btn animate__animated animate__fadeInDown animate__delay-1s" to='/searchcocktails'><button>Get Started</button></Link>
 
       <div className="hp-buttons-container animate__animated animate__fadeInDown animate__delay-2s">
         <Link className="cocktail-day-btn" to='/cocktailoftheday'><button>Cocktail of the day</button></Link>
         <p>|</p>
-        <Link className="all-cocktails-btn"> <button>All cocktails</button></Link>
+        <Link className="all-cocktails-btn" to='/allcocktails'> <button>All cocktails</button></Link>
       </div>
 
     </div>

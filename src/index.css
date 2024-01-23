@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* Reset CSS */
 * {
@@ -44,7 +45,7 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #fffff2;
+  box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
   border-bottom: solid 2px #205dd1;
   z-index: 5;
 }
@@ -142,7 +143,7 @@ button:hover {
 .back-to-lists-button {
   font-size: 18px;
   color: #205dd1;
-  background-color: #fffff2;
+  background-color: rgba(255, 255, 242, 0.7);
   width: fit-content;
   height: fit-content;
   border: 1px solid #205dd1;
@@ -151,6 +152,19 @@ button:hover {
   line-height: 1.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
+}
+
+.ingredient-button:hover,
+.add-list-button:hover,
+.submit-list-button:hover,
+.delete-list-button:hover,
+.update-list-button:hover,
+.back-to-lists-button:hover {
+  background-color: white;
+}
+
+.search-bar .ingredient-button:hover {
+  background-color:rgba(32, 93, 209, 0.1);
 }
 
 .add-list-button {
@@ -214,7 +228,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 0.5rem;
   position: absolute;
   right: 2rem;
   width: 60%;
@@ -237,6 +251,7 @@ button:hover {
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem;
+  position: relative;
 }
 
 .search-bar h2 {
@@ -265,6 +280,68 @@ button:hover {
   background: #588ff6;
 }
 
+.clear-all-button {
+  font-family: 'Quicksand', sans-serif !important;
+  color: lightblue;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 1.3rem;
+  right: 1.5rem;
+}
+
+.clear-all-button:hover {
+  color: #205dd1
+}
+
+.hide {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 0.7rem;
+  display: none;
+  position: absolute;
+  top: 20%;
+  right: calc(100% + 0.2rem);
+  width: 3.5rem;
+}
+
+.clear-all-button:hover .hide {
+  display: block;
+}
+
+.search-filters {
+  display: flex;
+  background-color: rgba(255, 255, 242, 0.7);
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+}
+
+.filters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 10px;
+  padding: 1rem;
+  max-height: 20%;
+  max-width: 100%;
+  align-items: center;
+}
+
+.filters-input {
+  display: flex;
+  align-items: center;
+}
+
+.filter-label {
+  padding: 0.5rem;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
 .search-results {
   border: 2px solid #205dd1;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -278,13 +355,24 @@ button:hover {
   padding: 1rem;
 }
 
+.search-results p {
+  padding: 0 0.5rem;
+  border-radius: 2rem;
+  box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
+  font-weight: bold;
+}
+
+.search-results > h2 {
+  padding: 1rem 0;
+}
+
 .recipe-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: fit-content;
-  height: fit-content;
-  background-color: #fffff2;
+  height: 14rem;
+  box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
   border-radius: 2rem;
   margin: 0.5rem;
 }
@@ -294,6 +382,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
+  height: 12rem;
 }
 
 .recipe-card-info .image-container,
@@ -309,7 +398,6 @@ button:hover {
 .list-card .text-container {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   align-items: flex-start;
   color: #205dd1;
   width: 8rem;
@@ -324,10 +412,25 @@ button:hover {
   max-width: 8rem;
 }
 
+.text-container-info {
+  font-weight: light;
+  font-size: 0.8rem;
+  color: #205dd1;
+  padding: 1rem 0 0 0;
+}
+
+.text-container-info p {
+  padding: 0.2rem 0;
+}
+
 .recipe-card > p {
   color: red;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
+}
+
+.missing-ing {
+  font-weight: bold;
 }
 
 .lists-container,
@@ -354,12 +457,17 @@ button:hover {
   width: fit-content;
   height: fit-content;
   background-color: #fffff2;
+  border: 1px solid #205dd1;
   border-radius: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem;
   padding: 1rem;
+}
+
+.list-card:hover {
+  background-color: #EEF4FF;
 }
 
 .single-list {
@@ -382,6 +490,8 @@ button:hover {
 .single-list span {
   font-weight: 700;
 }
+
+/* form to add, update & delete list styles */
 
 .addListForm {
   position: absolute;
@@ -438,25 +548,40 @@ button:hover {
 
 .checkboxes {
   background-color: #fffff2;
-  display: flex;
-  flex-wrap: wrap;
-  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 10px;
   border-radius: 2rem;
   border: 1px solid #205dd1;
-  padding: 0.5rem;
+  padding: 1rem;
+  max-height: 20%;
+  max-width: 85%;
 }
 
 .checkbox-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  width: fit-content;
+  max-width: 100%;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 0.2rem;
 }
 
 .checkbox-item > label {
-  padding-left: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.checkbox-item > label:hover {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 /* cocktail of the day page & single cocktail page styles */
