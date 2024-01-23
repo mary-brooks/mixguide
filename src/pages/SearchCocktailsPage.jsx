@@ -34,6 +34,21 @@ function SearchCocktailsPage() {
    // State for cocktail only filter
    const [cocktailOnly, setCocktailOnly] = useState(false);
 
+   // State for dairy free filter
+   const [dairyFree, setDairyFree] = useState(false);
+
+   // State for eggs free filter
+   const [eggsFree, setEggsFree] = useState(false);
+
+   // State for nuts free filter
+   const [nutsFree, setNutsFree] = useState(false);
+
+   // State for hot filter
+   const [hotOnly, setHotOnly] = useState(false);
+
+  // State for cold filter
+  const [coldOnly, setColdOnly] = useState(false);
+
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
   const getCocktails = async () => {
@@ -77,12 +92,27 @@ function SearchCocktailsPage() {
       // Check if it's a cocktail
       const cocktailCondition = cocktailOnly ? cocktail.is_cocktail : true;
 
+      // Check if it's dairy free
+      const dairyFreeCondition = dairyFree ? cocktail.is_dairyFree : true;
+
+      // Check if it's eggs free
+      const eggsFreeCondition = eggsFree ? cocktail.is_eggsFree : true;
+
+      // Check if it's nuts free
+      const nutsFreeCondition = nutsFree ? cocktail.is_nutsFree : true;
+
+      // Check if it's hot
+      const hotCondition = hotOnly ? cocktail.is_hot : true;
+
+      // Check if it's cold
+      const coldCondition = coldOnly ? cocktail.is_cold : true;
+
       // Combine the conditions based on user-selected filters
-      return missingIngredientCondition && mocktailCondition && cocktailCondition;
+      return missingIngredientCondition && mocktailCondition && cocktailCondition && dairyFreeCondition && eggsFreeCondition && nutsFreeCondition && hotCondition && coldCondition;
     });
 
     setFilteredCocktails(cocktailResults);
-  }, [selectedIngredients, showMissingIngredient, mocktailOnly, cocktailOnly]);
+  }, [selectedIngredients, showMissingIngredient, mocktailOnly, cocktailOnly, dairyFree, eggsFree, nutsFree, hotOnly, coldOnly]);
 
 
 
@@ -179,6 +209,30 @@ function SearchCocktailsPage() {
       setCocktailOnly(!cocktailOnly)
     }
 
+    // function to toggle dairy free checkbox
+    const toggleDairyFree = () => {
+      setDairyFree(!dairyFree)
+    }
+
+    // function to toggle eggs free checkbox
+    const toggleEggsFree = () => {
+      setEggsFree(!eggsFree)
+    }
+
+    // function to toggle nuts free checkbox
+    const toggleNutsFree = () => {
+      setNutsFree(!nutsFree)
+    }
+
+    // function to toggle hot only checkbox
+    const toggleHotOnly = () => {
+      setHotOnly(!hotOnly)
+    }
+
+    const toggleColdOnly = () => {
+      setColdOnly(!coldOnly)
+    }
+
 
   return (
     <div>
@@ -197,6 +251,11 @@ function SearchCocktailsPage() {
           toggleMissingIng={toggleMissingIng}
           toggleMocktailOnly={toggleMocktailOnly}
           toggleCocktailOnly={toggleCocktailOnly}
+          toggleDairyFree={toggleDairyFree}
+          toggleEggsFree={toggleEggsFree}
+          toggleNutsFree={toggleNutsFree}
+          toggleHotOnly={toggleHotOnly}
+          toggleColdOnly={toggleColdOnly}
         />
 
         {filteredCocktails.length !== 0 && (
@@ -227,7 +286,7 @@ function SearchCocktailsPage() {
                         <p>Rating: {cocktail.rating}</p>
                       </div>
                     </div>
-                    {missingIngredient && <p>Missing ingredient: {missingIngredient}</p>}
+                    {missingIngredient && <p>You're only missing {missingIngredient}</p>}
                   </div>
                 </Link>
               );
