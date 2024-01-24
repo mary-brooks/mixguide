@@ -45,14 +45,18 @@ function SingleList() {
                   target='_blank'
                 >
                   <div className='recipe-card'>
-                    <div className='image-container'>
-                      <img src={cocktail.image} alt={cocktail.recipe_title} />
-                    </div>
-                    <div className='text-container'>
-                      <h2>{cocktail.recipe_title}</h2>
-                      <p>Alcohol: {cocktail.alcohol_percentage}</p>
-                      <p>Calories: {cocktail.calories}</p>
-                      <p>Rating: {cocktail.rating}</p>
+                    <div className='recipe-card-info'>
+                      <div className='image-container'>
+                        <img src={cocktail.image} alt={cocktail.recipe_title} />
+                      </div>
+                      <div className='text-container'>
+                        <h2>{cocktail.recipe_title}</h2>
+                        <div className='text-container-info'>
+                          <p>Alcohol: {cocktail.alcohol_percentage}</p>
+                          <p>Calories: {cocktail.calories}</p>
+                          <p>Rating: {cocktail.rating}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Link>

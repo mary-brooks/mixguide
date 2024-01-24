@@ -31,20 +31,20 @@ function SearchCocktailsPage() {
   // State for mocktail only filter
   const [mocktailOnly, setMocktailOnly] = useState(false);
 
-   // State for cocktail only filter
-   const [cocktailOnly, setCocktailOnly] = useState(false);
+  // State for cocktail only filter
+  const [cocktailOnly, setCocktailOnly] = useState(false);
 
-   // State for dairy free filter
-   const [dairyFree, setDairyFree] = useState(false);
+  // State for dairy free filter
+  const [dairyFree, setDairyFree] = useState(false);
 
-   // State for eggs free filter
-   const [eggsFree, setEggsFree] = useState(false);
+  // State for eggs free filter
+  const [eggsFree, setEggsFree] = useState(false);
 
-   // State for nuts free filter
-   const [nutsFree, setNutsFree] = useState(false);
+  // State for nuts free filter
+  const [nutsFree, setNutsFree] = useState(false);
 
-   // State for hot filter
-   const [hotOnly, setHotOnly] = useState(false);
+  // State for hot filter
+  const [hotOnly, setHotOnly] = useState(false);
 
   // State for cold filter
   const [coldOnly, setColdOnly] = useState(false);
@@ -83,7 +83,8 @@ function SearchCocktailsPage() {
 
       // Check if the user has selected every ingredient or is missing at most one
       const missingIngredientCondition = showMissingIngredient
-        ? selectedCount === cocktail.ingredients.length - 1 || selectedCount === cocktail.ingredients.length
+        ? selectedCount === cocktail.ingredients.length - 1 ||
+          selectedCount === cocktail.ingredients.length
         : selectedCount === cocktail.ingredients.length;
 
       // Check if it's a mocktail
@@ -108,14 +109,30 @@ function SearchCocktailsPage() {
       const coldCondition = coldOnly ? cocktail.is_cold : true;
 
       // Combine the conditions based on user-selected filters
-      return missingIngredientCondition && mocktailCondition && cocktailCondition && dairyFreeCondition && eggsFreeCondition && nutsFreeCondition && hotCondition && coldCondition;
+      return (
+        missingIngredientCondition &&
+        mocktailCondition &&
+        cocktailCondition &&
+        dairyFreeCondition &&
+        eggsFreeCondition &&
+        nutsFreeCondition &&
+        hotCondition &&
+        coldCondition
+      );
     });
 
     setFilteredCocktails(cocktailResults);
-  }, [selectedIngredients, showMissingIngredient, mocktailOnly, cocktailOnly, dairyFree, eggsFree, nutsFree, hotOnly, coldOnly]);
-
-
-
+  }, [
+    selectedIngredients,
+    showMissingIngredient,
+    mocktailOnly,
+    cocktailOnly,
+    dairyFree,
+    eggsFree,
+    nutsFree,
+    hotOnly,
+    coldOnly,
+  ]);
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
@@ -163,16 +180,14 @@ function SearchCocktailsPage() {
         );
         break;
       case 'pantry':
-        setPantryIngredients(prevIngredients => [
-          ...prevIngredients,
-          ingredient,
-        ]);
+        setPantryIngredients(prevIngredients =>
+          [...prevIngredients, ingredient].sort()
+        );
         break;
       case 'cupboard':
-        setCupboardIngredients(prevIngredients => [
-          ...prevIngredients,
-          ingredient,
-        ]);
+        setCupboardIngredients(prevIngredients =>
+          [...prevIngredients, ingredient].sort()
+        );
         break;
       default:
         break;
@@ -181,8 +196,8 @@ function SearchCocktailsPage() {
 
   // function to toggle missing ingredient checkbox
   const toggleMissingIng = () => {
-    setShowMissingIngredient(!showMissingIngredient)
-  }
+    setShowMissingIngredient(!showMissingIngredient);
+  };
 
   // helper function to check if a cocktail recipe has a missing ingredient
   function findMissingIngredient(cocktail) {
@@ -199,104 +214,113 @@ function SearchCocktailsPage() {
     return null; // Return null if no missing ingredient found
   }
 
-    // function to toggle mocktail only checkbox
-    const toggleMocktailOnly = () => {
-      setMocktailOnly(!mocktailOnly)
-    }
+  // function to toggle mocktail only checkbox
+  const toggleMocktailOnly = () => {
+    setMocktailOnly(!mocktailOnly);
+  };
 
-    // function to toggle mocktail only checkbox
-    const toggleCocktailOnly = () => {
-      setCocktailOnly(!cocktailOnly)
-    }
+  // function to toggle mocktail only checkbox
+  const toggleCocktailOnly = () => {
+    setCocktailOnly(!cocktailOnly);
+  };
 
-    // function to toggle dairy free checkbox
-    const toggleDairyFree = () => {
-      setDairyFree(!dairyFree)
-    }
+  // function to toggle dairy free checkbox
+  const toggleDairyFree = () => {
+    setDairyFree(!dairyFree);
+  };
 
-    // function to toggle eggs free checkbox
-    const toggleEggsFree = () => {
-      setEggsFree(!eggsFree)
-    }
+  // function to toggle eggs free checkbox
+  const toggleEggsFree = () => {
+    setEggsFree(!eggsFree);
+  };
 
-    // function to toggle nuts free checkbox
-    const toggleNutsFree = () => {
-      setNutsFree(!nutsFree)
-    }
+  // function to toggle nuts free checkbox
+  const toggleNutsFree = () => {
+    setNutsFree(!nutsFree);
+  };
 
-    // function to toggle hot only checkbox
-    const toggleHotOnly = () => {
-      setHotOnly(!hotOnly)
-    }
+  // function to toggle hot only checkbox
+  const toggleHotOnly = () => {
+    setHotOnly(!hotOnly);
+  };
 
-    const toggleColdOnly = () => {
-      setColdOnly(!coldOnly)
-    }
-
+  const toggleColdOnly = () => {
+    setColdOnly(!coldOnly);
+  };
 
   return (
     <div>
       <Navbar />
       <div className='search-cocktails-page'>
-      <SearchOptions
-        handleButtonClick={handleButtonClick}
-        fridgeIngredients={fridgeIngredients}
-        pantryIngredients={pantryIngredients}
-        cupboardIngredients={cupboardIngredients}
-      />
-      <div className='search-container'>
-        <SearchBar
-          selectedIngredients={selectedIngredients}
-          handleRemoveClick={handleRemoveClick}
-          toggleMissingIng={toggleMissingIng}
-          toggleMocktailOnly={toggleMocktailOnly}
-          toggleCocktailOnly={toggleCocktailOnly}
-          toggleDairyFree={toggleDairyFree}
-          toggleEggsFree={toggleEggsFree}
-          toggleNutsFree={toggleNutsFree}
-          toggleHotOnly={toggleHotOnly}
-          toggleColdOnly={toggleColdOnly}
+        <SearchOptions
+          handleButtonClick={handleButtonClick}
+          fridgeIngredients={fridgeIngredients}
+          pantryIngredients={pantryIngredients}
+          cupboardIngredients={cupboardIngredients}
         />
+        <div className='search-container'>
+          <SearchBar
+            selectedIngredients={selectedIngredients}
+            handleRemoveClick={handleRemoveClick}
+            toggleMissingIng={toggleMissingIng}
+            toggleMocktailOnly={toggleMocktailOnly}
+            toggleCocktailOnly={toggleCocktailOnly}
+            toggleDairyFree={toggleDairyFree}
+            toggleEggsFree={toggleEggsFree}
+            toggleNutsFree={toggleNutsFree}
+            toggleHotOnly={toggleHotOnly}
+            toggleColdOnly={toggleColdOnly}
+          />
 
-        <div className='search-results'>
+          <div className='search-results'>
+            {filteredCocktails.length !== 0 && (
+              <h2>You can make these cocktails with your ingredients:</h2>
+            )}
+            {selectedIngredients.length === 0 && (
+              <p>Select your ingredients to start</p>
+            )}
 
-        {filteredCocktails.length !== 0 && (
-          <h2>You can make these cocktails with your ingredients:</h2>
-        )}
-          {selectedIngredients.length === 0 && <p>Select your ingredients to start</p>}
-
-          {selectedIngredients &&
-            filteredCocktails.map(cocktail => {
-              const missingIngredient = findMissingIngredient(cocktail);
-              return (
-                <Link
-                  key={cocktail.id}
-                  to={`/cocktails/${cocktail.id}`}
-                  target='_blank'
-                >
-                  <div className='recipe-card'>
-                    <div className='recipe-card-info'>
-                      <div className='image-container'>
-                        <img src={cocktail.image} alt={cocktail.recipe_title} />
-                      </div>
-                      <div className='text-container'>
-                        <h2>{cocktail.recipe_title}</h2>
-                        <div className='text-container-info'>
-                        <p>Alcohol: {cocktail.alcohol_percentage}</p>
-                        <p>Calories: {cocktail.calories}</p>
-                        <p>Rating: {cocktail.rating}</p>
+            {selectedIngredients &&
+              filteredCocktails.map(cocktail => {
+                const missingIngredient = findMissingIngredient(cocktail);
+                return (
+                  <Link
+                    key={cocktail.id}
+                    to={`/cocktails/${cocktail.id}`}
+                    target='_blank'
+                  >
+                    <div className='recipe-card'>
+                      <div className='recipe-card-info'>
+                        <div className='image-container'>
+                          <img
+                            src={cocktail.image}
+                            alt={cocktail.recipe_title}
+                          />
+                        </div>
+                        <div className='text-container'>
+                          <h2>{cocktail.recipe_title}</h2>
+                          <div className='text-container-info'>
+                            <p>Alcohol: {cocktail.alcohol_percentage}</p>
+                            <p>Calories: {cocktail.calories}</p>
+                            <p>Rating: {cocktail.rating}</p>
+                          </div>
                         </div>
                       </div>
+                      {missingIngredient && (
+                        <p>
+                          You are missing{' '}
+                          <span className='missing-ing'>
+                            {missingIngredient}
+                          </span>
+                        </p>
+                      )}
                     </div>
-                    {missingIngredient && <p>You are missing <span className="missing-ing">{missingIngredient}</span></p>}
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
+          </div>
         </div>
       </div>
-      </div>
-
     </div>
   );
 }

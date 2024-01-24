@@ -164,7 +164,7 @@ button:hover {
 }
 
 .search-bar .ingredient-button:hover {
-  background-color:rgba(32, 93, 209, 0.1);
+  background-color: rgba(32, 93, 209, 0.1);
 }
 
 .add-list-button {
@@ -292,7 +292,7 @@ button:hover {
 }
 
 .clear-all-button:hover {
-  color: #205dd1
+  color: #205dd1;
 }
 
 .hide {
@@ -316,30 +316,9 @@ button:hover {
   margin-top: 0.5rem;
 }
 
-.filters-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-gap: 10px;
-  padding: 1rem;
-  max-height: 20%;
+.search-filters .checkboxes {
   max-width: 100%;
-  align-items: center;
-}
-
-.filters-input {
-  display: flex;
-  align-items: center;
-}
-
-.filter-label {
-  padding: 0.5rem;
-  font-family: 'Quicksand', sans-serif !important;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-input[type="checkbox"] {
-  cursor: pointer;
+  border: none;
 }
 
 .search-results {
@@ -355,7 +334,7 @@ input[type="checkbox"] {
   padding: 1rem;
 }
 
-.search-results p {
+.search-results > p {
   padding: 0 0.5rem;
   border-radius: 2rem;
   box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
@@ -364,6 +343,7 @@ input[type="checkbox"] {
 
 .search-results > h2 {
   padding: 1rem 0;
+  width: 100%;
 }
 
 .recipe-card {
@@ -403,6 +383,7 @@ input[type="checkbox"] {
   width: 8rem;
   height: fit-content;
   margin-left: 1rem;
+  font-weight: bold;
 }
 
 .recipe-card-info img,
@@ -435,7 +416,6 @@ input[type="checkbox"] {
 
 .lists-container,
 .single-list-container {
-  background-color: #fffff2;
   width: 90%;
   min-height: 2rem;
   height: fit-content;
@@ -467,7 +447,7 @@ input[type="checkbox"] {
 }
 
 .list-card:hover {
-  background-color: #EEF4FF;
+  background-color: #eef4ff;
 }
 
 .single-list {
@@ -549,7 +529,7 @@ input[type="checkbox"] {
 .checkboxes {
   background-color: #fffff2;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   grid-gap: 10px;
   border-radius: 2rem;
   border: 1px solid #205dd1;
@@ -561,10 +541,10 @@ input[type="checkbox"] {
 .checkbox-item {
   display: flex;
   align-items: center;
-  max-width: 100%;
+  width: 13rem;
 }
 
-.checkbox-item input[type="checkbox"] {
+.checkbox-item input[type='checkbox'] {
   margin-right: 0.2rem;
 }
 
