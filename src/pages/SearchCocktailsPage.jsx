@@ -5,6 +5,7 @@ import SearchOptions from '../components/SearchOptions';
 import axios from 'axios';
 import ingredients from '../ingredients.json';
 import { Link } from 'react-router-dom';
+import newTabIcon from '../assets/images/new-tab-icon.png';
 
 function SearchCocktailsPage() {
   // State for ingredients
@@ -138,12 +139,10 @@ function SearchCocktailsPage() {
   ]);
 
   useEffect(() => {
-    console.log('Sorting by:', sortBy);
 
     if (sortBy === 'bestRated') {
       setFilteredCocktails(prevFilteredCocktails => {
         const sortedCocktails = [...prevFilteredCocktails].sort((a, b) => b.rating - a.rating);
-        console.log('Sorted cocktails by bestRated:', sortedCocktails);
         return sortedCocktails;
       });
     }
@@ -151,11 +150,10 @@ function SearchCocktailsPage() {
     if (sortBy === 'lowestCal') {
       setFilteredCocktails(prevFilteredCocktails => {
         const sortedCocktails = [...prevFilteredCocktails].sort((a, b) => a.calories - b.calories);
-        console.log('Sorted cocktails by lowestCal:', sortedCocktails);
         return sortedCocktails;
       });
     }
-  }, [sortBy]);
+  }, [sortBy, filteredCocktails]);
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
@@ -336,14 +334,23 @@ function SearchCocktailsPage() {
                           </div>
                         </div>
                       </div>
+                      <div className='recipe-card-bottom'>
                       {missingIngredient && (
-                        <p>
+                        <p className='missing-one-ing'>
                           You are missing{' '}
                           <span className='missing-ing'>
                             {missingIngredient}
                           </span>
                         </p>
                       )}
+
+                      {!missingIngredient && (
+                        <p className='all-ing'>
+                          You have all {cocktail.total_ingredients} ingredients
+                        </p>
+                      )}
+                      <img src={newTabIcon} alt="new-tab-icon" />
+                      </div>
                     </div>
                   </Link>
                 );

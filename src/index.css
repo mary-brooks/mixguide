@@ -351,7 +351,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
+  width: 19rem;
   height: 14rem;
   box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
   border-radius: 2rem;
@@ -405,7 +405,19 @@ button:hover {
   padding: 0.2rem 0;
 }
 
-.recipe-card > p {
+.recipe-card-bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.recipe-card-bottom img {
+  width: 1.5rem;
+  height: auto;
+}
+
+.missing-one-ing {
   color: red;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
@@ -413,6 +425,12 @@ button:hover {
 
 .missing-ing {
   font-weight: bold;
+}
+
+.all-ing {
+  color: darkgreen;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
 }
 
 .lists-container,
