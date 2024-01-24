@@ -309,16 +309,10 @@ button:hover {
   display: block;
 }
 
-.search-filters {
-  display: flex;
-  background-color: rgba(255, 255, 242, 0.7);
-  border-radius: 2rem;
-  margin-top: 0.5rem;
-}
-
 .search-filters .checkboxes {
   max-width: 100%;
   border: none;
+  margin-top: 0.5rem;
 }
 
 .search-results {
