@@ -282,17 +282,17 @@ button:hover {
 
 .clear-all-button {
   font-family: 'Quicksand', sans-serif !important;
-  color: lightblue;
+  color: #205dd1;
   font-weight: bold;
   background-color: transparent;
   border: none;
   position: absolute;
   top: 1.3rem;
-  right: 1.5rem;
+  right: 2rem;
 }
 
 .clear-all-button:hover {
-  color: #205dd1;
+  color: lightsteelblue;
 }
 
 .hide {
@@ -335,9 +335,16 @@ button:hover {
   font-weight: bold;
 }
 
-.search-results > h2 {
-  padding: 1rem 0;
+.search-results-heading{
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search-results select {
+  border: none;
+  color: #205dd1;
 }
 
 .recipe-card {
