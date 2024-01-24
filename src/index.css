@@ -685,8 +685,11 @@ input[type="checkbox"] {
 }
 
 .back-to-home img {
-  width: 6rem;
+  width: 4rem;
   height: auto;
   border: 2px solid #205dd1;
   border-radius: 50%;
+}
+.back-to-home img:hover {
+  background-color: #fffff2;
 }

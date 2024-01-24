@@ -28,9 +28,9 @@ function CocktailDetails() {
 
   return (
     <div>
-      <Navbar />
-      {cocktailDetails && (
-        <div className='cocktail-container'>
+    <Navbar />
+    {cocktailDetails && (
+      <div className='cocktail-container'>
           <div className='cocktail-details'>
             <div className='image-container'>
               <img
@@ -76,7 +76,7 @@ function CocktailDetails() {
               <span>{cocktailDetails.rating}</span>
             </div>
           </div>
-          <Link class='back-to-home' to='/'>
+          <Link className='back-to-home' to='/'>
             <img src={homeIcon} alt='home-icon' />
           </Link>
         </div>
