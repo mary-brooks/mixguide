@@ -108,7 +108,6 @@ nav {
 .hp-buttons-container {
   display: flex;
   margin-top: 20px;
-  margin-right: 3%;
 }
 
 .hp-buttons-container button {
@@ -357,6 +356,9 @@ button:hover {
   border-radius: 2rem;
   margin: 0.5rem;
 }
+.recipe-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
 
 .recipe-card-info {
   display: flex;
@@ -419,10 +421,17 @@ button:hover {
   height: auto;
 }
 
+.single-list .recipe-card-bottom,
+.all-cocktails .recipe-card-bottom {
+  justify-content: flex-end;
+}
+
 .missing-one-ing {
   color: red;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
 }
 
 .missing-ing {
@@ -430,9 +439,11 @@ button:hover {
 }
 
 .all-ing {
-  color: darkgreen;
+  color: green;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
 }
 
 .lists-container,
@@ -448,6 +459,10 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.single-list-container .recipe-card {
+  height: 11.5rem;
+}
+
 .lists-container {
   position: absolute;
   left: 2rem;
@@ -458,7 +473,6 @@ button:hover {
   width: fit-content;
   height: fit-content;
   background-color: #fffff2;
-  border: 1px solid #205dd1;
   border-radius: 2rem;
   display: flex;
   justify-content: space-between;
@@ -468,7 +482,7 @@ button:hover {
 }
 
 .list-card:hover {
-  background-color: #eef4ff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .single-list {

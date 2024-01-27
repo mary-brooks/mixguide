@@ -19,7 +19,7 @@ function HomePage() {
       <div className="hp-buttons-container animate__animated animate__fadeInDown animate__delay-2s">
         <Link className="cocktail-day-btn" to='/cocktailoftheday'><button>Cocktail of the day</button></Link>
         <p>|</p>
-        <Link className="all-cocktails-btn" to='/allcocktails'> <button>All cocktails</button></Link>
+        <Link className="all-cocktails-btn" to='/allcocktails'> <button>View all cocktails</button></Link>
       </div>
 
     </div>

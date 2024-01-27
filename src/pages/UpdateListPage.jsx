@@ -39,17 +39,21 @@ function UpdateListPage() {
   };
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    const requestBody = { title, created_by, cocktails: chosenCocktails };
+    if (chosenCocktails.length === 0)  {
+      e.preventDefault();
+      alert("Please select at least one cocktail.")
+    } else {
+      const requestBody = { title, created_by, cocktails: chosenCocktails };
 
-    axios.put(`${API_URL}${listId}`, requestBody)
-      .then(response => {
-        alert('List updated successfully!');
-        navigate(`/lists/${listId}`);
-      })
-      .catch(error => {
-        console.error('Error updating list:', error);
-      });
+      axios.put(`${API_URL}${listId}`, requestBody)
+        .then(response => {
+          alert('List updated successfully!');
+          navigate(`/lists/${listId}`);
+        })
+        .catch(error => {
+          console.error('Error updating list:', error);
+        });
+    }
   };
 
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import newTabIcon from '../assets/images/new-tab-icon.png';
 
 function SingleList() {
   const { listId } = useParams();
@@ -58,6 +59,9 @@ function SingleList() {
                         </div>
                       </div>
                     </div>
+                    <div className='recipe-card-bottom'>
+                      <img src={newTabIcon} alt="new-tab-icon" />
+                      </div>
                   </div>
                 </Link>
               );

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Spinner from '../components/Spinner';
+import newTabIcon from '../assets/images/new-tab-icon.png';
 
 const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
@@ -55,6 +56,9 @@ function AllCocktailsPage() {
                             <p>Rating: {cocktail.rating}</p>
                           </div>
                         </div>
+                      </div>
+                      <div className='recipe-card-bottom'>
+                      <img src={newTabIcon} alt="new-tab-icon" />
                       </div>
                     </div>
                   </Link>

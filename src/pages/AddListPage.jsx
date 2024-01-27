@@ -44,24 +44,29 @@ function AddListPage() {
 
   const addList = async () => {
     try {
-      const request = {
-        title,
-        created_by,
-        cocktails: chosenCocktails,
-      };
+      if (chosenCocktails.length === 0)  {
+        alert("Please select at least one cocktail.")
+      } else {
+        const request = {
+          title,
+          created_by,
+          cocktails: chosenCocktails,
+        };
 
-      await axios.post(
-        `https://cocktail-app-mock-backend.adaptable.app/lists`,
-        request
-      );
+        await axios.post(
+          `https://cocktail-app-mock-backend.adaptable.app/lists`,
+          request
+        );
 
-      setTitle('');
-      setCreated_by('');
-      setCocktails([]);
+        setTitle('');
+        setCreated_by('');
+        setCocktails([]);
 
-      alert('List added successfully!');
+        alert('List added successfully!');
 
-      navigate('/lists');
+        navigate('/lists');
+      }
+
     } catch (error) {
       console.error('Error creating list:', error);
     }
@@ -95,6 +100,7 @@ function AddListPage() {
             id='title'
             name='title'
             value={title}
+            required
           />
         </div>
 
@@ -106,6 +112,7 @@ function AddListPage() {
             id='created_by'
             name='created_by'
             value={created_by}
+            required
           />
         </div>
 
