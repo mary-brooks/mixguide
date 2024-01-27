@@ -11,7 +11,7 @@ function UpdateListPage() {
   const [cocktails, setCocktails] = useState([]);
   const [cocktailOptions, setCocktailOptions] = useState([]);
   const [chosenCocktails, setChosenCocktails] = useState([]);
-  const [imgURL, setImgURL] = useState('')
+  const [imgURL, setImgURL] = useState('');
 
   const { listId } = useParams();
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ function UpdateListPage() {
   };
 
   const handleImgURL = e => {
-    setImgURL(e.target.value)
-  }
+    setImgURL(e.target.value);
+  };
 
   const handleCocktails = e => {
     const selectedCocktail = e.target.value;
@@ -43,13 +43,19 @@ function UpdateListPage() {
   };
 
   const handleSubmit = async e => {
-    if (chosenCocktails.length === 0)  {
-      e.preventDefault();
-      alert("Please select at least one cocktail.")
+    e.preventDefault();
+    if (chosenCocktails.length === 0) {
+      alert('Please select at least one cocktail.');
     } else {
-      const requestBody = { title, created_by, imgURL, cocktails: chosenCocktails };
+      const requestBody = {
+        title,
+        created_by,
+        imgURL,
+        cocktails: chosenCocktails,
+      };
 
-      axios.put(`${API_URL}${listId}`, requestBody)
+      axios
+        .put(`${API_URL}${listId}`, requestBody)
         .then(response => {
           alert('List updated successfully!');
           navigate(`/lists/${listId}`);
@@ -59,7 +65,6 @@ function UpdateListPage() {
         });
     }
   };
-
 
   const getCocktailOptions = async () => {
     try {
