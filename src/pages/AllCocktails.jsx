@@ -32,7 +32,7 @@ function AllCocktailsPage() {
   return (
     <div>
     <Navbar />
-    <div className='all-cocktails'>
+    <div className='all-cocktails page-container'>
       {cocktails.map((cocktail) => {
         return (
           <Link

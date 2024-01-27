@@ -27,7 +27,7 @@ function CocktailDetails() {
   }, []);
 
   return (
-    <div>
+    <div className='page-container'>
     <Navbar />
     {cocktailDetails && (
       <div className='cocktail-container'>

@@ -61,11 +61,10 @@ function CocktailOfTheDayPage() {
   console.log('cocktailOfTheDay:', cocktailOfTheDay);
 
   return (
-    <div>
+    <div className='page-container'>
       {cocktailOfTheDay && (
         <>
       <Navbar />
-
         <div className='cocktail-container'>
           <div className='cocktail-details'>
             <div className='image-container'>

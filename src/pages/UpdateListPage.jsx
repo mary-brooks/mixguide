@@ -2,7 +2,6 @@ import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/lists/';
 
@@ -12,6 +11,7 @@ function UpdateListPage() {
   const [cocktails, setCocktails] = useState([]);
   const [cocktailOptions, setCocktailOptions] = useState([]);
   const [chosenCocktails, setChosenCocktails] = useState([]);
+  const [imgURL, setImgURL] = useState('')
 
   const { listId } = useParams();
   const navigate = useNavigate();
@@ -23,6 +23,10 @@ function UpdateListPage() {
   const handleCreated_by = e => {
     setCreated_by(e.target.value);
   };
+
+  const handleImgURL = e => {
+    setImgURL(e.target.value)
+  }
 
   const handleCocktails = e => {
     const selectedCocktail = e.target.value;
@@ -43,7 +47,7 @@ function UpdateListPage() {
       e.preventDefault();
       alert("Please select at least one cocktail.")
     } else {
-      const requestBody = { title, created_by, cocktails: chosenCocktails };
+      const requestBody = { title, created_by, imgURL, cocktails: chosenCocktails };
 
       axios.put(`${API_URL}${listId}`, requestBody)
         .then(response => {
@@ -79,6 +83,7 @@ function UpdateListPage() {
 
       setTitle(singleList.title);
       setCreated_by(singleList.created_by);
+      setImgURL(singleList.imgURL);
       setChosenCocktails(singleList.cocktails);
 
       const cocktailNames = singleList.cocktails.map(cocktail => {
@@ -130,6 +135,17 @@ function UpdateListPage() {
             id='created_by'
             name='created_by'
             value={created_by}
+          />
+        </div>
+
+        <div className='form-text-field'>
+          <label htmlFor='imgURL'>Image URL:</label>
+          <input
+            onChange={handleImgURL}
+            type='text'
+            id='imgURL'
+            name='imgURL'
+            value={imgURL}
           />
         </div>
 

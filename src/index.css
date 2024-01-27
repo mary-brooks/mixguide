@@ -485,6 +485,11 @@ button:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.text-container > p {
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
+}
+
 .single-list {
   position: absolute;
   left: 2rem;
@@ -601,6 +606,12 @@ button:hover {
 
 /* cocktail of the day page & single cocktail page styles */
 
+.page-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .cocktail-container {
   padding-top: 5rem;
   display: flex;
@@ -660,6 +671,8 @@ button:hover {
 .cocktail-ingredients li {
   width: fit-content;
   margin-right: 4rem;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
 }
 .cocktail-instructions {
   width: fit-content;
@@ -672,6 +685,8 @@ button:hover {
 }
 .cocktail-instructions li {
   list-style-type: none;
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
 }
 
 .cocktail-info-container {
@@ -692,6 +707,12 @@ button:hover {
 
 .cocktail-info h3 {
   padding-right: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.cocktail-info > span {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
 }
 
 .back-to-home {
