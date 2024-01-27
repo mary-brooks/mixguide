@@ -62,8 +62,10 @@ function CocktailOfTheDayPage() {
 
   return (
     <div>
-      <Navbar />
       {cocktailOfTheDay && (
+        <>
+      <Navbar />
+
         <div className='cocktail-container'>
           <div className='cocktail-details'>
             <div className='image-container'>
@@ -114,6 +116,7 @@ function CocktailOfTheDayPage() {
             <img src={homeIcon} alt='home-icon' />
           </Link>
         </div>
+    </>
       )}
     </div>
   );

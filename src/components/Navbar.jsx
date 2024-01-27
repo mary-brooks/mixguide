@@ -14,6 +14,7 @@ function Navbar() {
       const scrollThreshold = 20; // scroll threshold
 
       setIsScrolled(scrollPosition > scrollThreshold); // updating state
+      console.log(scrollPosition)
     }
 
     window.addEventListener('scroll', handleScroll);

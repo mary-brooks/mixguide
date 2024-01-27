@@ -39,7 +39,8 @@ function ListsPage() {
                 <div className='list-card'>
                   <div className='image-container'>
                     {
-                      <img
+                      list.imgURL ? <img src={list.imgURL}
+                        alt='list cover image'/> : <img
                         src={cocktailIllustration}
                         alt='cocktail illustration'
                       />

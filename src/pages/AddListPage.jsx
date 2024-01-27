@@ -10,6 +10,7 @@ function AddListPage() {
   const [cocktails, setCocktails] = useState([]);
   const [cocktailOptions, setCocktailOptions] = useState([]);
   const [chosenCocktails, setChosenCocktails] = useState([]);
+  const [imgURL, setImgURL] = useState('')
 
   const navigate = useNavigate();
 
@@ -20,6 +21,10 @@ function AddListPage() {
   const handleCreated_by = e => {
     setCreated_by(e.target.value);
   };
+
+  const handleImgURL = e => {
+    setImgURL(e.target.value)
+  }
 
   const handleCocktails = e => {
     const selectedCocktail = e.target.value;
@@ -50,6 +55,7 @@ function AddListPage() {
         const request = {
           title,
           created_by,
+          imgURL,
           cocktails: chosenCocktails,
         };
 
@@ -60,6 +66,7 @@ function AddListPage() {
 
         setTitle('');
         setCreated_by('');
+        setImgURL('');
         setCocktails([]);
 
         alert('List added successfully!');
@@ -113,6 +120,17 @@ function AddListPage() {
             name='created_by'
             value={created_by}
             required
+          />
+        </div>
+
+        <div className='form-text-field'>
+          <label htmlFor='imgURL'>Image URL:</label>
+          <input
+            onChange={handleImgURL}
+            type='text'
+            id='imgURL'
+            name='imgURL'
+            value={imgURL}
           />
         </div>
 
