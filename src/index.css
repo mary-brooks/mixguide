@@ -153,7 +153,6 @@ button:hover {
   margin: 0.5rem;
 }
 
-.ingredient-button:hover,
 .add-list-button:hover,
 .submit-list-button:hover,
 .delete-list-button:hover,
@@ -188,7 +187,6 @@ button:hover {
 
 .ingredients {
   border: 2px solid #205dd1;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
   width: 33%;
   display: flex;
@@ -198,6 +196,11 @@ button:hover {
   position: absolute;
   left: 2rem;
   padding: 0;
+  background-color: #fffff2;
+}
+
+.ingredient-button:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .fridge,
@@ -328,10 +331,10 @@ button:hover {
 }
 
 .search-results > p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
   padding: 0 0.5rem;
   border-radius: 2rem;
-  box-shadow: inset 0 0 2rem 2rem rgba(255, 255, 242, 0.7);
-  font-weight: bold;
 }
 
 .search-results-heading{
@@ -343,6 +346,7 @@ button:hover {
 
 .search-results select {
   border: none;
+  border-radius: 2rem;
   color: #205dd1;
 }
 
@@ -448,14 +452,14 @@ button:hover {
 
 .lists-container,
 .single-list-container {
-  width: 90%;
+  width: 95%;
   min-height: 2rem;
   height: fit-content;
-  border: 2px solid #205dd1;
+  border: 1px solid #205dd1;
   border-radius: 2rem;
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -488,11 +492,11 @@ button:hover {
 .text-container > p {
   font-family: 'Quicksand', sans-serif !important;
   font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 .single-list {
   position: absolute;
-  left: 2rem;
   top: 6rem;
   width: 100%;
   height: fit-content;
@@ -505,6 +509,7 @@ button:hover {
 .single-list > p {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .single-list span {
@@ -586,6 +591,7 @@ button:hover {
 
 .checkbox-item input[type='checkbox'] {
   margin-right: 0.2rem;
+  cursor: pointer;
 }
 
 .checkbox-item > label {

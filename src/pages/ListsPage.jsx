@@ -48,7 +48,7 @@ function ListsPage() {
                   </div>
                   <div className='text-container'>
                     <h2>{list.title}</h2>
-                    <p> Created by: {list.created_by}</p>
+                    <p> By: {list.created_by}</p>
                   </div>
                 </div>
               </Link>
