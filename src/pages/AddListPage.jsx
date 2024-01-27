@@ -59,6 +59,8 @@ function AddListPage() {
       setCreated_by('');
       setCocktails([]);
 
+      alert('List added successfully!');
+
       navigate('/lists');
     } catch (error) {
       console.error('Error creating list:', error);

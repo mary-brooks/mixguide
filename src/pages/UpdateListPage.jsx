@@ -42,10 +42,16 @@ function UpdateListPage() {
     e.preventDefault();
     const requestBody = { title, created_by, cocktails: chosenCocktails };
 
-    axios.put(`${API_URL}${listId}`, requestBody).then(response => {
-      navigate(`/lists/${listId}`);
-    });
+    axios.put(`${API_URL}${listId}`, requestBody)
+      .then(response => {
+        alert('List updated successfully!');
+        navigate(`/lists/${listId}`);
+      })
+      .catch(error => {
+        console.error('Error updating list:', error);
+      });
   };
+
 
   const getCocktailOptions = async () => {
     try {
@@ -86,9 +92,12 @@ function UpdateListPage() {
   }, [listId]);
 
   const deleteList = () => {
+    alert('Are you sure you want to delete this list?');
+
     axios
       .delete(`${API_URL}${listId}`)
       .then(() => {
+        alert('List deleted successfully!');
         navigate('/lists');
       })
       .catch(error => console.log('Error deleting list:', error));
