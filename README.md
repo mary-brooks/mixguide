@@ -2,7 +2,7 @@
 
 
 
-Welcome to the Mix Guide repository! This project is a user-friendly web platform designed to assist cocktail enthusiasts in discovering and creating delicious drinks based on available ingredients. Developed as part of a web development course, Mix Guide aims to simplify the cocktail-making process while inspiring creativity in mixology.
+This project is a user-friendly web platform designed to assist cocktail enthusiasts in discovering and creating delicious drinks based on available ingredients. Developed as part of a web development course, Mix Guide aims to simplify the cocktail-making process while inspiring creativity in mixology.
 
 ## Table of Contents
 - [Demo](#demo)
