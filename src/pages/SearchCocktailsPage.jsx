@@ -51,7 +51,7 @@ function SearchCocktailsPage() {
   const [coldOnly, setColdOnly] = useState(false);
 
   // State for sorting
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState('');
 
   const API_URL = 'https://cocktail-app-mock-backend.adaptable.app/cocktails';
 
@@ -69,8 +69,7 @@ function SearchCocktailsPage() {
   }, []);
 
   useEffect(() => {
-    // filter cocktails based on selectedIngredients state
-    const cocktailResults = cocktails.filter(cocktail => {
+    const updatedFilteredCocktails = cocktails.filter(cocktail => {
       let selectedCount = 0;
 
       // Check if each ingredient in the cocktail matches each selected ingredient
@@ -125,7 +124,15 @@ function SearchCocktailsPage() {
       );
     });
 
-    setFilteredCocktails(cocktailResults);
+    if (sortBy === 'bestRated') {
+      updatedFilteredCocktails.sort((a, b) => b.rating - a.rating);
+    }
+
+    if (sortBy === 'lowestCal') {
+      updatedFilteredCocktails.sort((a, b) => a.calories - b.calories);
+    }
+
+    setFilteredCocktails(updatedFilteredCocktails);
   }, [
     selectedIngredients,
     showMissingIngredient,
@@ -136,24 +143,9 @@ function SearchCocktailsPage() {
     nutsFree,
     hotOnly,
     coldOnly,
+    sortBy,
+    cocktails,
   ]);
-
-  useEffect(() => {
-
-    if (sortBy === 'bestRated') {
-      setFilteredCocktails(prevFilteredCocktails => {
-        const sortedCocktails = [...prevFilteredCocktails].sort((a, b) => b.rating - a.rating);
-        return sortedCocktails;
-      });
-    }
-
-    if (sortBy === 'lowestCal') {
-      setFilteredCocktails(prevFilteredCocktails => {
-        const sortedCocktails = [...prevFilteredCocktails].sort((a, b) => a.calories - b.calories);
-        return sortedCocktails;
-      });
-    }
-  }, [sortBy, filteredCocktails]);
 
   // handleClick function for buttons
   const handleButtonClick = (ingredient, category) => {
@@ -265,6 +257,7 @@ function SearchCocktailsPage() {
     setHotOnly(!hotOnly);
   };
 
+  // function to toggle cold only checkbox
   const toggleColdOnly = () => {
     setColdOnly(!coldOnly);
   };
@@ -296,12 +289,19 @@ function SearchCocktailsPage() {
           <div className='search-results'>
             {filteredCocktails.length !== 0 && (
               <div className='search-results-heading'>
-              <h2>You can make these cocktails with your ingredients:</h2>
-              <select name="sort" id="sort" onChange={event => setSortBy(event.target.value)}>
-                <option value="" disabled selected hidden>Sort by</option>
-                <option value="bestRated">Best rated</option>
-                <option value="lowestCal">Lowest calories</option>
-              </select>
+                <h2>You can make these cocktails with your ingredients:</h2>
+                <select
+                  name='sort'
+                  id='sort'
+                  value={sortBy}
+                  onChange={event => setSortBy(event.target.value)}
+                >
+                  <option value='' disabled hidden>
+                    Sort by
+                  </option>
+                  <option value='bestRated'>Best rated</option>
+                  <option value='lowestCal'>Lowest calories</option>
+                </select>
               </div>
             )}
             {selectedIngredients.length === 0 && (
@@ -335,21 +335,22 @@ function SearchCocktailsPage() {
                         </div>
                       </div>
                       <div className='recipe-card-bottom'>
-                      {missingIngredient && (
-                        <p className='missing-one-ing'>
-                          You are missing{' '}
-                          <span className='missing-ing'>
-                            {missingIngredient}
-                          </span>
-                        </p>
-                      )}
+                        {missingIngredient && (
+                          <p className='missing-one-ing'>
+                            You are missing{' '}
+                            <span className='missing-ing'>
+                              {missingIngredient}
+                            </span>
+                          </p>
+                        )}
 
-                      {!missingIngredient && (
-                        <p className='all-ing'>
-                          You have all {cocktail.total_ingredients} ingredients
-                        </p>
-                      )}
-                      <img src={newTabIcon} alt="new-tab-icon" />
+                        {!missingIngredient && (
+                          <p className='all-ing'>
+                            You have all {cocktail.total_ingredients}{' '}
+                            ingredients
+                          </p>
+                        )}
+                        <img src={newTabIcon} alt='new-tab-icon' />
                       </div>
                     </div>
                   </Link>

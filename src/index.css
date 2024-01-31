@@ -153,16 +153,13 @@ button:hover {
   margin: 0.5rem;
 }
 
+.ingredient-button:hover,
 .add-list-button:hover,
 .submit-list-button:hover,
 .delete-list-button:hover,
 .update-list-button:hover,
 .back-to-lists-button:hover {
   background-color: white;
-}
-
-.search-bar .ingredient-button:hover {
-  background-color: rgba(32, 93, 209, 0.1);
 }
 
 .add-list-button {
@@ -196,11 +193,7 @@ button:hover {
   position: absolute;
   left: 2rem;
   padding: 0;
-  background-color: #fffff2;
-}
-
-.ingredient-button:hover{
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  /* background-color: #fffff2; */
 }
 
 .fridge,
@@ -337,7 +330,7 @@ button:hover {
   border-radius: 2rem;
 }
 
-.search-results-heading{
+.search-results-heading {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -407,13 +400,17 @@ button:hover {
   padding: 1rem 0 0 0;
 }
 
+.text-container > h2 {
+  font-size: 1rem;
+}
+
 .text-container-info p {
   padding: 0.2rem 0;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
 
-.recipe-card-bottom{
+.recipe-card-bottom {
   display: flex;
   justify-content: space-between;
   width: 100%;
