@@ -6,16 +6,17 @@ Mix Guide is a user-friendly web application designed to assist cocktail enthusi
 
 - [Demo](#demo)
 - [Features](#features)
+- [Technologies] (#technologies)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🌐 Demo
+## 🌐 Demo <a name="demo"></a>
 
 Check out the live demo [here](https://mixguide.netlify.app/)
 
-## 🌟 Features
+## 🌟 Features <a name="features"></a>
 
 - **Ingredient-based Cocktail Recipes:** Discover cocktail recipes based the ingredients you have at home.
 - **Customizable Drink Lists**: Create personalised drinks lists to save and share your favorite cocktail recipes.
@@ -23,14 +24,14 @@ Check out the live demo [here](https://mixguide.netlify.app/)
 - **User-friendly Interface**: Intuitive design for seamless navigation and user experience.
 - **Advanced Filtering Options**: Filter recipes by cocktail type, dietary restrictions, and sorting preferences.
 
-## ⚡️ Technologies
+## ⚡️ Technologies <a name="technologies"></a>
 
 This project is built using the following technologies:
 
 - **React**
 - **JSON Server**
 
-## 🚀 Getting Started
+## 🚀 Getting Started <a name="getting-started"></a>
 
 **Prerequisites:**
 
@@ -76,7 +77,7 @@ This project is built using the following technologies:
 5. **Explore Mix Guide:**
    - Once the application is running, you can explore the Mix Guide features locally.
 
-## 👩‍💻 Usage
+## 👩‍💻 Usage <a name="usage"></a>
 
 - **Select Ingredients**: Choose your ingredients from our fridge, pantry, and cupboard.
 - **Discover Recipes**: Explore cocktail recipes generated based on your selected ingredients.
@@ -84,10 +85,10 @@ This project is built using the following technologies:
 - **Share and Enjoy**: Share your curated drink lists with friends and fellow cocktail enthusiasts.
 - **Advanced Filtering**: Use the advanced filtering options to refine your search by cocktail type, dietary restrictions, and sorting preferences.
 
-## 🤝 Contributions
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions are welcome! If you have ideas for improvements or new features, please open an issue or submit a pull request.
 
-## 📄 License
+## 📄 License <a name="license"></a>
 
 This project is licensed under the MIT License, which means you are free to use, modify, and distribute the code.
