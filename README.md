@@ -6,7 +6,7 @@ Mix Guide is a user-friendly web application designed to assist cocktail enthusi
 
 - [Demo](#demo)
 - [Features](#features)
-- [Technologies] (#technologies)
+- [Technologies](#technologies)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
