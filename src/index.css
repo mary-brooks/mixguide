@@ -1,8 +1,6 @@
 /* Fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* Reset CSS */
 * {
@@ -11,6 +9,9 @@
   box-sizing: border-box;
   font-family: 'Playfair Display', serif;
 }
+
+/* general styles */
+
 html,
 body {
   height: 100%;
@@ -30,7 +31,7 @@ body {
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin: 0;
 }
 
@@ -91,7 +92,7 @@ nav {
 
 .get-started-btn button {
   color: #205dd1;
-  font-size: 26px;
+  font-size: 1.625rem;
   width: fit-content;
   height: fit-content;
   border: 1px solid #205dd1;
@@ -107,12 +108,12 @@ nav {
 
 .hp-buttons-container {
   display: flex;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .hp-buttons-container button {
   color: #205dd1;
-  font-size: 14px;
+  font-size: 0.875rem;
   width: fit-content;
   height: fit-content;
   border: 0px solid #205dd1;
@@ -140,7 +141,7 @@ button:hover {
 .delete-list-button,
 .update-list-button,
 .back-to-lists-button {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #205dd1;
   background-color: rgba(255, 255, 242, 0.7);
   width: fit-content;
@@ -182,6 +183,8 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+/* search page styles*/
+
 .ingredients {
   border: 2px solid #205dd1;
   border-radius: 2rem;
@@ -193,7 +196,6 @@ button:hover {
   position: absolute;
   left: 2rem;
   padding: 0;
-  /* background-color: #fffff2; */
 }
 
 .fridge,
@@ -276,7 +278,7 @@ button:hover {
 }
 
 .clear-all-button {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   color: #205dd1;
   font-weight: bold;
   background-color: transparent;
@@ -291,7 +293,7 @@ button:hover {
 }
 
 .hide {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   font-size: 0.7rem;
   display: none;
   position: absolute;
@@ -422,11 +424,6 @@ button:hover {
   height: auto;
 }
 
-.single-list .recipe-card-bottom,
-.all-cocktails .recipe-card-bottom {
-  justify-content: flex-end;
-}
-
 .missing-one-ing {
   color: red;
   padding-bottom: 0.5rem;
@@ -445,6 +442,13 @@ button:hover {
   font-size: 0.75rem;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
+}
+
+/* single list and all cocktails page styles*/
+
+.single-list .recipe-card-bottom,
+.all-cocktails .recipe-card-bottom {
+  justify-content: flex-end;
 }
 
 .lists-container,
@@ -487,7 +491,7 @@ button:hover {
 }
 
 .text-container > p {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   margin-top: 0.5rem;
 }
@@ -593,7 +597,7 @@ button:hover {
 
 .checkbox-item > label {
   font-size: 1rem;
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -661,6 +665,7 @@ button:hover {
     1px 1px 5px #fffff2;
   margin-bottom: 2rem;
 }
+
 .cocktail-ingredients ul {
   display: flex;
   flex-direction: column;
@@ -671,24 +676,28 @@ button:hover {
   margin-bottom: 1rem;
   line-height: 2rem;
 }
+
 .cocktail-ingredients li {
   width: fit-content;
   margin-right: 4rem;
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
+
 .cocktail-instructions {
   width: fit-content;
   margin-top: 1rem;
   align-self: flex-start;
 }
+
 .cocktail-instructions ul {
   margin-bottom: 1rem;
   line-height: 2rem;
 }
+
 .cocktail-instructions li {
   list-style-type: none;
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
 
